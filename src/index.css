@@ -1,0 +1,28 @@
+:root {
+  /* Backgrounds */
+  --bg-page: #F5F7FA;
+  --bg-card: #FFFFFF;
+  --bg-hover: #E0EBFF;
+
+  /* Text colors */
+  --text-primary: #333333;
+  --text-secondary: #666666;
+
+  /* Buttons */
+  --btn-primary-bg: #3B82F6;
+  --btn-primary-text: #FFFFFF;
+  --btn-primary-hover-bg: #2563EB;
+
+  /* Status colors */
+  --status-success: #10B981;  /* Completed habit */
+  --status-warning: #F59E0B;  /* Warning/attention */
+  --status-error: #EF4444;    /* Missed habit */
+}
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: var(--bg-page);
+}
+
