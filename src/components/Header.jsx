@@ -4,12 +4,29 @@ import { useState, useEffect, useRef  } from 'react';
 const Header = () => {
 
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  // Effect to handle scroll event and change header style
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 10);
+    }
+
+    window.addEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, [] )
+  
   const navRef = useRef(null)
   const hamburgerRef = useRef(null)
+
+  // Function to toggle the menu open/close state
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
   
+  // Close the menu when clicking outside of it
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (
@@ -32,7 +49,7 @@ const Header = () => {
 
 
   return (
-    <header className={Style.header}>
+    <header className={`${Style.header} ${isScrolled ? Style.headerScrolled : ''}`}>
         <h1 className={Style.header__title}>HabitSpark</h1>
 
 

@@ -1,4 +1,6 @@
 import styles from '../Styles/FeaturedHighlight.module.css';
+import { useEffect, useState } from 'react';
+import Aos from 'aos';
 import { Link } from 'react-router-dom';
 const FeaturesdHighlight = () => {
 
@@ -25,13 +27,17 @@ const FeaturesdHighlight = () => {
         }
     ]
 
+    useEffect(() => {
+        Aos.init({ duration: 1000 });
+    }, []);
+
     return (
         <section className={styles.festuresSection}>
             <h2 className={styles.featuresTitle}>Features</h2>
             <div className={styles.featuresContainer}>
                 {feature.map((item, index) => (
                     <Link to={item.link} className={styles.featureLink}>
-                        <div key={index} className={styles.featureCard}>
+                        <div key={index} className={styles.featureCard} data-aos="fade-up">
                         <span className={styles.featureIcon}>{item.icon}</span>
                         <h3 className={styles.featureTitle}>{item.title}</h3>
                         <p className={styles.featureDescription}>{item.description}</p>
