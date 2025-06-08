@@ -38,7 +38,7 @@ const FeaturesdHighlight = () => {
             <div className={styles.featuresContainer}>
                 {feature.map((item, index) => (
                     <Link to={item.link} className={styles.featureLink}>
-                        <div key={index} className={styles.featureCard} data-aos="fade-up">
+                        <div key={index} className={styles.featureCard} data-aos="zoom-in" data-aos-delay="200">
                         <span className={styles.featureIcon}>{item.icon}</span>
                         <h3 className={styles.featureTitle}>{item.title}</h3>
                         <p className={styles.featureDescription}>{item.description}</p>

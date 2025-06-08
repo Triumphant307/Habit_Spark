@@ -56,7 +56,7 @@ const Home = () => {
         </div>
           <FeaturesdHighlight />
 
-           <div style={{ textAlign: 'center' , padding: '2rem '}}>
+           <div style={{ textAlign: 'center' , padding: '2rem'}}>
             <h2>Stay Consistent, Stay Motivated</h2>
             <p>Join us in building better habits and achieving your goals.</p>
             <LottieAnimation />
