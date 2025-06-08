@@ -1,5 +1,6 @@
 import styles from '../Styles/Home.module.css';
 import FeaturesdHighlight from '../components/FeaturedHighlight';
+import LottieAnimation from '../components/LottieAniamtion';
 import { Link } from 'react-router-dom';
 import { useEffect , useState } from 'react';
 
@@ -54,6 +55,13 @@ const Home = () => {
           </div>
         </div>
           <FeaturesdHighlight />
+
+           <div style={{ textAlign: 'center' , padding: '2rem '}}>
+            <h2>Stay Consistent, Stay Motivated</h2>
+            <p>Join us in building better habits and achieving your goals.</p>
+            <LottieAnimation />
+           </div>
+
 
       </section>
        
