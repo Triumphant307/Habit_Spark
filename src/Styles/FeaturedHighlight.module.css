@@ -1,0 +1,59 @@
+.featuresSection {
+  padding: 2rem;
+  background-color: var(--bg-card);
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  max-width: 800px;
+  margin: 2rem auto;
+}
+
+.heading {
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  color: var(--text-primary);
+}
+
+.featuresGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 1.5rem;
+}
+
+.featureCard {
+  background: var(--bg);
+  border-radius: 10px;
+  padding: 1.25rem;
+  margin: 1.25rem;
+  text-align: center;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.475);
+  transition: transform 0.2s ease;
+  cursor: pointer;
+  padding-top: 20px;
+  color: var(--text-primary);
+
+}
+
+.featureLink{
+    text-decoration: none;
+    color: inherit;
+}
+
+.featureCard:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 1px 4px rgb(0, 0, 0);
+
+}
+
+.icon {
+  font-size: 2.5rem;
+  display: block;
+  margin-bottom: 0.75rem;
+}
+
+.featuresTitle {
+  font-weight: 600;
+  font-size: 2rem;
+  color: var(--text-primary);
+}

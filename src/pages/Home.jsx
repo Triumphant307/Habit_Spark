@@ -1,9 +1,10 @@
 import styles from '../Styles/Home.module.css';
+import FeaturesdHighlight from '../components/FeaturedHighlight';
 import { Link } from 'react-router-dom';
 import { useEffect , useState } from 'react';
 
 const Home = () => {
-    const words = [ 'HabitSpark' , 'Focus' , 'Productivity', 'Success', 'Goals' ];
+    const words = [ 'HabitSpark' , 'Focus🎯' , 'Productivity🏋️‍♀️', 'Success', 'Goals' ];
     const [currentWordIndex, setCurrentWordIndex] = useState(0)
     const [typedText, setTypedText] = useState('')
     const [isDeleting, setIsDeleting] = useState(false);
@@ -41,7 +42,8 @@ const Home = () => {
 
 
     return (
-      <section>
+      <>
+        <section>
         <div className={styles.home}>
           <h1 className={styles.home__title}>Welcome to <br /><span className={styles.typed}>{typedText}</span><span className={styles.cursor}>|</span></h1>
           <p className={styles.home__description}>
@@ -51,7 +53,14 @@ const Home = () => {
             <Link to="/suggestions" className={styles.home__button_link}><button className={styles.home__button}>Get Started</button></Link>
           </div>
         </div>
+          <FeaturesdHighlight />
+
       </section>
+       
+        
+      </>
+
+    
     );
 }
 
