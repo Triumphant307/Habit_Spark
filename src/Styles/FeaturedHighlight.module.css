@@ -46,6 +46,10 @@
 
 }
 
+.featureCard:focus {
+  box-shadow: 0 1px 4px rgb(0, 0, 0);
+}
+
 .icon {
   font-size: 2.5rem;
   display: block;

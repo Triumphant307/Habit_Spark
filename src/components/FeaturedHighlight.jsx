@@ -4,7 +4,8 @@ import Aos from 'aos';
 import 'aos/dist/aos.css';
 import { Link } from 'react-router-dom';
 const FeaturesdHighlight = () => {
-
+// This component highlights the features of the HabitSpark app
+    // Array of features to be displayed
     const feature = [
         {
            icon: '✅',
@@ -27,11 +28,13 @@ const FeaturesdHighlight = () => {
 
         }
     ]
-
+// Initialize AOS (Animate On Scroll) for animations
     useEffect(() => {
         Aos.init({ duration: 1000 });
     }, []);
-
+ 
+    // Render the features section
+    // Each feature is displayed as a card with an icon, title, and description
     return (
         <section className={styles.festuresSection}>
             <h2 className={styles.featuresTitle}>Features</h2>
