@@ -18,7 +18,7 @@ const ProgressTrack = ( {radius, stroke, progress} ) => {
                 cy={radius}
             />
             <circle
-                stroke="#4caf50"
+                stroke="#10B981"
                 fill="transparent"
                 strokeWidth={stroke}
                 strokeDasharray={circumference + ' ' + circumference}

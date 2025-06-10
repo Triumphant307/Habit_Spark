@@ -83,6 +83,11 @@ header{
     transform: rotate(-48deg) translateY(-15px);
 }
 
+.active {
+    text-decoration-color: var(--text-primary);
+    text-decoration-thickness: 2px;
+}
+
 @media (max-width: 500px){
     .header__navlist{
     flex-direction: column;
