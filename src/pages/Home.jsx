@@ -1,6 +1,7 @@
 import styles from '../Styles/Home.module.css';
 import FeaturesdHighlight from '../components/FeaturedHighlight';
 import QuotesMotivation from '../components/QuotesMotivation';
+import CompletedPreview from '../components/CompletedPreview';
 import LottieAnimation from '../components/LottieAniamtion';
 import { Link } from 'react-router-dom';
 import { useEffect , useState } from 'react';
@@ -64,6 +65,7 @@ const Home = () => {
            </div>
 
           <QuotesMotivation />
+          <CompletedPreview />
       </section>
        
         
