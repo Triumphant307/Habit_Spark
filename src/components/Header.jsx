@@ -1,5 +1,6 @@
 import Style from '../Styles/Header.module.css';
-import { Link } from 'react-router-dom';
+import ThemeToggle from './ThemeToggle';
+import { NavLink } from 'react-router-dom';
 import { useState, useEffect, useRef  } from 'react';
 const Header = () => {
 
@@ -47,7 +48,7 @@ const Header = () => {
     };
   }, [isMenuOpen])
 
-
+// This component renders the header with a title and a responsive navigation menu
   return (
     <header className={`${Style.header} ${isScrolled ? Style.headerScrolled : ''}`}>
         <h1 className={Style.header__title}>HabitSpark</h1>
@@ -68,13 +69,33 @@ const Header = () => {
         ref={navRef}>
             <ul className={Style.header__navlist}>
                 <li className={Style.header__nav__item}>
-                    <Link to="/" className={Style.header__nav__link} onClick={() => setIsMenuOpen(false)}>Home</Link>
+                    <NavLink to="/" 
+                    className={({ isActive }) =>
+                       `${Style.header__nav__link} ${isActive ? Style.active : ''}`
+                     }
+                     onClick={() => setIsMenuOpen(false)}
+                     >Home</NavLink>
                 </li>
                 <li className={Style.header__nav__item}>
-                    <Link to="/suggestions" className={Style.header__nav__link} onClick={() => setIsMenuOpen(false)} >Suggestions</Link>
+                    <NavLink to="/suggestions" 
+                    className={({ isActive }) =>
+                       `${Style.header__nav__link} ${isActive ? Style.active : ''}`
+                     }
+                     onClick={() => setIsMenuOpen(false)}
+                     >Suggestions</NavLink>
                 </li>
                 <li className={Style.header__nav__item}>
-                    <Link to="/completed" className={Style.header__nav__link} onClick={() => setIsMenuOpen(false)}>Completed</Link>
+                    <NavLink to="/completed" 
+                    className={({ isActive }) =>
+                       `${Style.header__nav__link} ${isActive ? Style.active : ''}`
+                     }
+                     onClick={() => setIsMenuOpen(false)}
+                     >Completed</NavLink>
+                </li>
+                <li className={Style.header__nav__item}
+                    onClick={() => setIsMenuOpen(false)}
+                >
+                    <ThemeToggle />
                 </li>
             </ul>
         </nav>

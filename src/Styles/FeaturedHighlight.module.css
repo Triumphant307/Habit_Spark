@@ -1,5 +1,5 @@
 .featuresSection {
-  padding: 2rem;
+  padding: 2000rem;
   background-color: var(--bg-card);
   border-radius: 12px;
   box-shadow: 0 2px 8px rgba(0,0,0,0.1);
@@ -22,13 +22,13 @@
 }
 
 .featureCard {
-  background: var(--bg);
+  background: var(--bg-card);
   border-radius: 10px;
   padding: 1.25rem;
   margin: 1.25rem;
   text-align: center;
-  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.475);
-  transition: transform 0.2s ease;
+  box-shadow: var(--box-shadow);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
   cursor: pointer;
   padding-top: 20px;
   color: var(--text-primary);
@@ -42,8 +42,12 @@
 
 .featureCard:hover {
   transform: translateY(-5px);
-  box-shadow: 0 1px 4px rgb(0, 0, 0);
+  box-shadow: var(--box-shadow-hover);
 
+}
+
+.featureCard:focus {
+  box-shadow: 0 1px 4px rgb(0, 0, 0);
 }
 
 .icon {
