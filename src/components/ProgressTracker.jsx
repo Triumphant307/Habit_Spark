@@ -34,7 +34,7 @@ const ProgressTrack = ( {radius, stroke, progress} ) => {
                 textAnchor='middle'
                 dy='.3em'
                 fontSize='1.1em'
-                fill="#333"
+                fill="var(--text-primary)"
             >
             {progress}%
             </text>

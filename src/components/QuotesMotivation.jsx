@@ -19,9 +19,6 @@ const QuotesMotivation = () => {
     const fetchQuote = async () => {
         try {
             const response = await fetch('https://corsproxy.io/?https://zenquotes.io/api/random');
-            if (!response.ok) {
-                throw new Error("Network response was not ok");
-            }
             const data = await response.json();
             if(Array.isArray(data) && data[0]?.q){
                 setQuote({q: data[0].q, a: data[0].a});

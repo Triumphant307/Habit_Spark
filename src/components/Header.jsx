@@ -1,4 +1,5 @@
 import Style from '../Styles/Header.module.css';
+import ThemeToggle from './ThemeToggle';
 import { NavLink } from 'react-router-dom';
 import { useState, useEffect, useRef  } from 'react';
 const Header = () => {
@@ -90,6 +91,11 @@ const Header = () => {
                      }
                      onClick={() => setIsMenuOpen(false)}
                      >Completed</NavLink>
+                </li>
+                <li className={Style.header__nav__item}
+                    onClick={() => setIsMenuOpen(false)}
+                >
+                    <ThemeToggle />
                 </li>
             </ul>
         </nav>

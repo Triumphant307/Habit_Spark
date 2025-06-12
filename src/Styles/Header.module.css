@@ -8,13 +8,13 @@ header{
   margin: 20px;
   border-radius: 10px;
   background-color: var(--bg-card);
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  box-shadow: var(--box-shadow);
   transition: all 0.5s ease-in-out;
 }
 
 .headerScrolled {
   /* background-color: var(--bg-header); */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  box-shadow: var(--box-shadow-header);
   transform: translateY(0);
   opacity: 1;
 }
@@ -92,7 +92,7 @@ header{
     .header__navlist{
     flex-direction: column;
     gap: 1rem;
-    background-color: white;
+    background-color: var(--bg-card);
     position: absolute;
     top: 60px;
     right: 2rem;

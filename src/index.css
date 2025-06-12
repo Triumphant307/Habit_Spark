@@ -17,6 +17,32 @@
   --status-success: #10B981;  /* Completed habit */
   --status-warning: #F59E0B;  /* Warning/attention */
   --status-error: #EF4444;    /* Missed habit */
+
+ /* box shadow */
+  --box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+  --box-shadow-hover: 0 1px 4px rgb(0, 0, 0);
+  --box-shadow-focus: 0 1px 4px rgb(0, 0, 0);
+  --box-shadow-header: 0 2px 4px rgba(0, 0, 0, 0.2);
+
+
+}
+
+
+body.dark {
+  --bg-page: #121212;
+  --bg-card: #1e1e1e;
+  --bg-hover: #232323;
+
+  --text-primary: #ffffff;
+  --text-secondary: #cccccc;
+
+  --box-shadow: 0 2px 8px rgba(255,255,255,0.15);
+  --box-shadow-hover: 0 2px 8px rgba(255,255,255,0.25);
+  --box-shadow-focus: 0 2px 8px rgba(255,255,255,0.25);
+  --box-shadow-header: 0 2px 4px rgba(255,255,255,0.2);
+
+  background-color: var(--bg-page);
+  color: var(--text-color);
 }
 
 body {
