@@ -9,10 +9,34 @@
     margin-bottom: 1.5rem;
     text-align: center;
     color: var(--text-primary);
+    font-weight: bold;
 }
 
 form {
     display: flex;
     flex-direction: column;
     gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+imput[type="text"],
+input[type="number"] {
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1rem;
+    width: 100%;
+    box-shadow: var(--box-shadow);
+    transition: box-shadow 0.3s ease;
+}
+
+button {
+    padding: 0.5rem 1rem;
+    background-color: var( --btn-primary-bg);
+    color: var(--text-primary);
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
 }
