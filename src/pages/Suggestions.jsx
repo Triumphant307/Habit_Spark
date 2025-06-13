@@ -65,7 +65,6 @@ const Suggestions = () => {
   return (
     <div className={styles.suggestions}>
       <h1 className={styles.title}>Habit Suggestions</h1>
-      <p>Here are some suggestions to help you build better habits:</p>
       <form 
       onSubmit={handleAddHabit}
       >
