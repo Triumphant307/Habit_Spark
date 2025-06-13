@@ -4,6 +4,7 @@ import Home from "./pages/Home"
 import Footer from "./components/Footer"
 import Suggestions from "./pages/Suggestions"
 import Completed from "./pages/Completed"
+import Tracker from "./pages/Tracker"
 import BackToTop from "./components/BackToTop"
 
 function App() {
@@ -18,6 +19,7 @@ function App() {
         <Route path="/" element={<Home/>} />
         <Route path="/suggestions" element={<Suggestions/>} />
         <Route path="/completed" element={<Completed/>} />
+        <Route path="/tracker" element={<Tracker/>} />
       </Routes>
     </main>
     

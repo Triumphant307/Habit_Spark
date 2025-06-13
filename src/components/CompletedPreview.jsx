@@ -6,7 +6,7 @@ import ProgressTrack from './ProgressTracker';
 const CompletedPreview = () => {
 
     const habits = [
-        { icon: "🔥", title: "Drink Water", streak: 30, target: 30 },
+        { icon: "💧", title: "Drink Water", streak: 30, target: 30 },
         { icon: "📚", title: "Read Book", streak: 3, target: 30 },
         { icon: "🏃", title: "Exercise", streak: 5,  target: 30},
     ]

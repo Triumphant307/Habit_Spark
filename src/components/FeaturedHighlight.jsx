@@ -11,7 +11,7 @@ const FeaturesdHighlight = () => {
            icon: '✅',
             title: 'Track Daily Progress',
             description: 'Easily monitor your daily habits and see how you\'re improving over time.',
-            link: '/suggestions'
+            link: '/tracker'
         },
         {
             icon: '💡',

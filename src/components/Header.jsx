@@ -92,6 +92,14 @@ const Header = () => {
                      onClick={() => setIsMenuOpen(false)}
                      >Completed</NavLink>
                 </li>
+                <li className={Style.header__nav__item}>
+                    <NavLink to="/tracker" 
+                    className={({ isActive }) =>
+                       `${Style.header__nav__link} ${isActive ? Style.active : ''}`
+                     }
+                     onClick={() => setIsMenuOpen(false)}
+                     >Tracker</NavLink>
+                </li>
                 <li className={Style.header__nav__item}
                     onClick={() => setIsMenuOpen(false)}
                 >

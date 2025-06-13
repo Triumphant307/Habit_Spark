@@ -11,6 +11,7 @@ const Footer = () => {
         <li><NavLink to="/">Home</NavLink></li>
         <li><NavLink to="/completed">Completed</NavLink></li>
         <li><NavLink to="/suggestions">Suggestions</NavLink></li>
+        <li><NavLink to="/tracker">Tracker</NavLink></li>
       </ul>
 
       <div className={styles.socials}>
@@ -26,7 +27,7 @@ const Footer = () => {
       </div>
 
       <div className={styles.credit}>
-        Made with <span className={styles.heart}>❤️</span> by You
+        Made with <span className={styles.heart}>❤️</span> by Triumphant_
       </div>
     </footer>
   );
