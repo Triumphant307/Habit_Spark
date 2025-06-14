@@ -11,7 +11,13 @@ const Suggestions = () => {
   {icon: '🏃', title: 'Exercise daily'},
   {icon: '🛌', title: 'Get enough sleep'},
   {icon: '🥗', title: 'Eat healthy meals'},
-  {icon: '🧘', title: 'Practice mindfulness'}
+  {icon: '🧘', title: 'Practice mindfulness'},
+  {icon: '📚', title: 'Read books daily'},
+  {icon: '📝', title: 'Journal your thoughts'},
+  {icon: '🌱', title: 'Learn something new'},
+  {icon: '🚶', title: 'Take daily walks'},
+  {icon: '🧹', title: 'Declutter your space'},
+  {icon: '🎨', title: 'Engage in a hobby'},
  ]
 
  const [ title, setTitle ] = useState('');
@@ -63,41 +69,47 @@ const Suggestions = () => {
 
 
   return (
-    <div className={styles.suggestions}>
+    <div className={styles.suggestions} >
       <h1 className={styles.title}>Habit Suggestions</h1>
       <form 
-      onSubmit={handleAddHabit}
+        onSubmit={handleAddHabit}
       >
         <input 
-        type="text" 
-        value={title} 
-        onChange={(e) => setTitle((e.target.value))} 
-        placeholder="Habit Title" 
+          type="text" 
+          value={title} 
+          onChange={(e) => setTitle((e.target.value))} 
+          placeholder="Habit Title" 
         />
-    <div>
-      <button type="button" onClick={() => setShowPicker((prev) => !prev)}>
-        {icon ? `Selected: ${icon}` : 'Show Emoji'}
-      </button>
-        {showPicker && (
-          <Picker data={data} onEmojiSelect={handleEmojiSelect} />
-        )}
-    </div>
+        <div style={{ marginBottom: '10px' }}>
+          <button className={styles.btn} type="button" onClick={() => setShowPicker((prev) => !prev)} >
+            {icon ? `Selected: ${icon}` : 'Show Emoji'}
+          </button>
+          {showPicker && (
+            <div style={{ marginTop: '10px' }}>
+              <Picker data={data} onEmojiSelect={handleEmojiSelect} />
+            </div>
+          )}
+        </div>
         <input 
-        type="number" 
-        value={target} 
-        onChange={(e) => setTarget(Number(e.target.value))} 
-        placeholder="Habit Target" 
+          type="number" 
+          value={target} 
+          onChange={(e) => setTarget(Number(e.target.value))} 
+          placeholder="Habit Target" 
         />
-        <button type="submit" onClick={handleAddHabit}>Add New Habit</button>
+        <button className={styles.btn} type="submit" onClick={handleAddHabit}>Add New Habit</button>
         {error && <div className={styles.error}>{error}</div>}
       </form>
 
-      <div className={styles.tipCard}>
+      <div className={styles.tipCard} style={{ display: 'flex', justifyContent: 'center', flexWrap: 'wrap', marginTop: '30px', gap: '20px' }}>
         {tips.map((tip, index) => (
-          <div key={index} className={styles.card}>
-            <span className={styles.icon}>{tip.icon}</span>
+          <div key={index} className={styles.card} style={{ textAlign: 'center' }}>
+            <span className={styles.icon} style={{ fontSize: '2rem' }}>{tip.icon}</span>
             <h3>{tip.title}</h3>
-            <button onClick={() => addHabit({ ...tip, target: 30, streak: 0 })}>Add Habit</button>
+            <button 
+              className={styles.btn} 
+              onClick={() => addHabit({ ...tip, target: 30, streak: 0 })}
+              style={{ display: 'block', margin: '0 auto' }}
+            >Add Habit</button>
           </div>
         ))}
       </div>
