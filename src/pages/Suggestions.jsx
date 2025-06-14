@@ -2,7 +2,7 @@ import { useHabits } from "../context/HabitContext";
 import styles from '../Styles/Suggestion.module.css';
 import Picker from '@emoji-mart/react';
 import data from '@emoji-mart/data';
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 const Suggestions = () => {
   const { addHabit } = useHabits();
 
@@ -25,8 +25,24 @@ const Suggestions = () => {
  const [ target, setTarget ] = useState(30);
  const  [ error, setError ] = useState('');
   const [ showPicker, setShowPicker ] = useState(false);
+  const pickerRef = useRef(null)
 
+    useEffect(() => {
+        if( !showPicker){
+        setShowPicker(false);
+      }
+      const handleClickOutside = (event) => {
+        if (pickerRef.current && !pickerRef.current.contains(event.target)) {
+          setShowPicker(false);
+        }
+      }
 
+      document.addEventListener('mousedown', handleClickOutside)
+      return () => {
+        document.removeEventListener('mousedown', handleClickOutside)
+      }
+
+    }, [showPicker])
 
   const handleEmojiSelect = (emoji) => {
     setIcon(emoji.native); // Set the selected emoji as the icon
@@ -57,6 +73,8 @@ const Suggestions = () => {
       target,
       streak: 0
     });
+
+
 
 // Reset form fields after adding habit
     setTitle('');
@@ -89,7 +107,10 @@ const Suggestions = () => {
             {icon ? `Selected: ${icon}` : 'Show Emoji'}
           </button>
           {showPicker && (
-            <div className={styles.pickerWrapper}>
+            <div 
+            className={styles.pickerWrapper}
+            ref={pickerRef}
+            >
                   <Picker data={data} onEmojiSelect={handleEmojiSelect} />
                 </div>
               )}
