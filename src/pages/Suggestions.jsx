@@ -80,27 +80,39 @@ const Suggestions = () => {
           onChange={(e) => setTitle((e.target.value))} 
           placeholder="Habit Title" 
         />
-        <div style={{ marginBottom: '10px' }}>
-          <button className={styles.btn} type="button" onClick={() => setShowPicker((prev) => !prev)} >
+        <div className={styles.pickerContainer}>
+          <button 
+            className={styles.btn} 
+            type="button" 
+            onClick={() => setShowPicker((prev) => !prev)} 
+          >
             {icon ? `Selected: ${icon}` : 'Show Emoji'}
           </button>
           {showPicker && (
-            <div style={{ marginTop: '10px' }}>
-              <Picker data={data} onEmojiSelect={handleEmojiSelect} />
+            <div className={styles.pickerWrapper}>
+                  <Picker data={data} onEmojiSelect={handleEmojiSelect} />
+                </div>
+              )}
             </div>
-          )}
-        </div>
+
         <input 
           type="number" 
           value={target} 
           onChange={(e) => setTarget(Number(e.target.value))} 
           placeholder="Habit Target" 
         />
-        <button className={styles.btn} type="submit" onClick={handleAddHabit}>Add New Habit</button>
+        <button 
+        className={styles.btn} 
+        type="submit" 
+        onClick={handleAddHabit}
+        >
+        Add New Habit</button>
         {error && <div className={styles.error}>{error}</div>}
       </form>
 
-      <div className={styles.tipCard} style={{ display: 'flex', justifyContent: 'center', flexWrap: 'wrap', marginTop: '30px', gap: '20px' }}>
+      <div 
+      className={styles.tipCard} 
+      style={{ display: 'flex', justifyContent: 'center', flexWrap: 'wrap', marginTop: '30px', gap: '20px' }}>
         {tips.map((tip, index) => (
           <div key={index} className={styles.card} style={{ textAlign: 'center' }}>
             <span className={styles.icon} style={{ fontSize: '2rem' }}>{tip.icon}</span>

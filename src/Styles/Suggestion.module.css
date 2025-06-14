@@ -92,3 +92,65 @@ input[type="number"] {
     font-size: 2rem;
     margin-bottom: 0.5rem;
 }
+
+.pickerWrapper {
+  position: absolute;
+  top: 110%; 
+  left: 0;
+  z-index: 100;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: var(--box-shadow);
+  animation: fadeIn 0.15s ease-in-out;
+}
+
+.pickerContainer {
+  position: relative;
+  display: inline-block;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-8px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    
+}
+
+@media (max-width: 600px) {
+    .suggestions {
+        padding: 10px;
+    }
+
+    .title {
+        font-size: 1.5rem;
+    }
+
+    input[type="text"],
+    input[type="number"] {
+        width: 100%;
+        margin-bottom: 0;
+    }
+
+    .btn {
+        width: 100%;
+    }
+
+    .tipCard {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    }
+
+  .pickerWrapper {
+    will-change: transform, opacity;
+    width: 95vw;
+    max-width: none;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 105%;
+  }
+    
+}
