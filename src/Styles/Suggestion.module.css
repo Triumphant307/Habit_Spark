@@ -19,7 +19,7 @@ form {
     display: flex;
     flex-direction: column;
     gap: 1rem;
-    margin-bottom: 2rem;
+    margin-bottom: 5rem;
     align-items: center;
     width: 100%;
 }
@@ -98,7 +98,6 @@ input[type="number"] {
   top: 110%; 
   left: 0;
   z-index: 100;
-  background-color: white;
   border-radius: 10px;
   box-shadow: var(--box-shadow);
   animation: fadeIn 0.15s ease-in-out;

@@ -2,6 +2,8 @@ import { useHabits } from "../context/HabitContext";
 import styles from '../Styles/Suggestion.module.css';
 import Picker from '@emoji-mart/react';
 import data from '@emoji-mart/data';
+// import { motion } from "framer";
+import Aos from 'aos'
 import { useState, useEffect, useRef } from "react";
 const Suggestions = () => {
   const { addHabit } = useHabits();
@@ -84,6 +86,10 @@ const Suggestions = () => {
     setShowPicker(false);
   }
 
+  useEffect(() => {
+    Aos.init({ duration: 1000})
+  })
+
 
 
   return (
@@ -135,7 +141,13 @@ const Suggestions = () => {
       className={styles.tipCard} 
       style={{ display: 'flex', justifyContent: 'center', flexWrap: 'wrap', marginTop: '30px', gap: '20px' }}>
         {tips.map((tip, index) => (
-          <div key={index} className={styles.card} style={{ textAlign: 'center' }}>
+          <div 
+           key={index}
+           className={styles.card} 
+           style={{ textAlign: 'center' }} 
+           data-aos="fade-up"  
+           data-aos-easing="ease-in-out-back" 
+          >
             <span className={styles.icon} style={{ fontSize: '2rem' }}>{tip.icon}</span>
             <h3>{tip.title}</h3>
             <button 
