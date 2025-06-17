@@ -1,10 +1,12 @@
 import { useHabits } from "../context/HabitContext";
+import { toast } from "react-toastify";
 import styles from '../Styles/Suggestion.module.css';
 import Picker from '@emoji-mart/react';
 import data from '@emoji-mart/data';
 // import { motion } from "framer";
 import Aos from 'aos'
 import { useState, useEffect, useRef } from "react";
+
 const Suggestions = () => {
   const { addHabit } = useHabits();
 
@@ -76,6 +78,9 @@ const Suggestions = () => {
       streak: 0
     });
 
+      toast.dismiss()
+      toast.success(`${title} ${icon} added to your habits!`);
+
 
 
 // Reset form fields after adding habit
@@ -108,7 +113,9 @@ const Suggestions = () => {
           <button 
             className={styles.btn} 
             type="button" 
-            onClick={() => setShowPicker((prev) => !prev)} 
+            onClick={() => setShowPicker((prev) => !prev)
+              
+            } 
           >
             {icon ? `Selected: ${icon}` : 'Show Emoji'}
           </button>
@@ -152,7 +159,9 @@ const Suggestions = () => {
             <h3>{tip.title}</h3>
             <button 
               className={styles.btn} 
-              onClick={() => addHabit({ ...tip, target: 30, streak: 0 })}
+              onClick={() => {addHabit({ ...tip, target: 30, streak: 0 })
+              toast.success(`${tip.title} ${tip.icon} added to your habits!`);
+            }}
               style={{ display: 'block', margin: '0 auto' }}
             >Add Habit</button>
           </div>

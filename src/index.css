@@ -52,3 +52,15 @@ body {
   background-color: var(--bg-page);
 }
 
+.Toastify__toast {
+  min-width: 100%;
+  /* font-size: 1.2rem; */
+  box-shadow: var(--box-shadow);
+}
+
+@media (max-width: 600px) {
+  .Toastify__toast {
+    min-width: 90vw;
+    font-size: 1rem;
+  }
+}

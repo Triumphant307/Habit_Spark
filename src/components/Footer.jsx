@@ -9,8 +9,8 @@ const Footer = () => {
 
       <ul className={styles.navLinks}>
         <li><NavLink to="/">Home</NavLink></li>
-        <li><NavLink to="/completed">Completed</NavLink></li>
         <li><NavLink to="/suggestions">Suggestions</NavLink></li>
+        <li><NavLink to="/completed">Completed</NavLink></li>
         <li><NavLink to="/tracker">Tracker</NavLink></li>
       </ul>
 
