@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useHabits } from "../../context/HabitContext";
-import styles from '../../Styles/SuggestionCard.module.css' 
+import styles from '../../Styles/suggestionCard.module.css' 
 import { toast } from "react-toastify";
 import Aos from 'aos'
 
