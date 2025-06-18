@@ -25,7 +25,7 @@ function App() {
        closeOnClick={true}
        pauseOnHover={true}
        draggable={true}
-       theme="light"
+      //  theme={isDark ? 'dark' : 'light'}
        limit={2}
      />
       <Routes>

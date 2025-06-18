@@ -1,0 +1,91 @@
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-bottom: 5rem;
+    align-items: center;
+    width: 100%;
+}
+
+input[type="text"],
+input[type="number"] {
+    padding: 0.5rem 1rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1rem;
+    width: 250px;
+    margin-bottom: 10px;
+    box-shadow: var(--box-shadow);
+    transition: box-shadow 0.3s ease;
+}
+
+.btn {
+    padding: 0.5rem 1rem;
+    background-color: var( --btn-primary-bg);
+    color: var(--text-primary);
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.btn:hover {
+    background-color: var(--btn-primary-hover-bg);
+}
+
+.error {
+    color: var(--status-error);
+    font-size: 0.875rem;
+    margin-top: 10px;
+}
+
+.pickerWrapper {
+  position: absolute;
+  top: 110%; 
+  left: 0;
+  z-index: 100;
+  border-radius: 10px;
+  box-shadow: var(--box-shadow);
+  animation: fadeIn 0.15s ease-in-out;
+}
+
+.pickerContainer {
+  position: relative;
+  display: inline-block;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-8px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    
+}
+
+@media (max-width: 600px) {
+
+    .pickerWrapper {
+    will-change: transform, opacity;
+    width: 95vw;
+    max-width: none;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 105%;
+  }
+
+      /* input[type="text"],
+    input[type="number"] {
+        width: 100%;
+        margin-bottom: 0;
+    }
+
+        .btn {
+        width: 100%;
+    } */
+}
+

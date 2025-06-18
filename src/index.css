@@ -56,6 +56,19 @@ body {
   min-width: 100%;
   /* font-size: 1.2rem; */
   box-shadow: var(--box-shadow);
+  padding: 10px;
+}
+
+.Toastify__toast--dark {
+  background-color: var(--bg-card);
+  color: var(--text-primary);
+}
+
+.Toastify__toast--light {
+  --bg-card: #1e1e1e;
+  --text-primary: #ffffff;
+  background-color: var(--bg-card);
+  color: var(--text-primary);
 }
 
 @media (max-width: 600px) {
