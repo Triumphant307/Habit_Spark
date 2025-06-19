@@ -27,6 +27,7 @@ function App() {
        draggable={true}
       //  theme={isDark ? 'dark' : 'light'}
        limit={2}
+       containerClassName="custom-toast-container"
      />
       <Routes>
         <Route path="/" element={<Home/>} />

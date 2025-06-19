@@ -6,6 +6,7 @@ header{
   justify-content: space-between;
   padding: 20px;
   margin: 20px;
+  max-width: 100%;
   border-radius: 10px;
   background-color: var(--bg-card);
   box-shadow: var(--box-shadow);
@@ -13,7 +14,6 @@ header{
 }
 
 .headerScrolled {
-  /* background-color: var(--bg-header); */
   box-shadow: var(--box-shadow-header);
   transform: translateY(0);
   opacity: 1;

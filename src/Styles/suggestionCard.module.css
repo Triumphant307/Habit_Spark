@@ -40,6 +40,34 @@
     transition: background-color 0.3s ease;
 }
 
+.filterButtons {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+
+.filterButtons button {
+    padding: 8px 16px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    color: var(--text-primary);
+    font-weight: bold;
+    background-color: var(--btn-primary-bg);
+    transition: 0.3s ease-in-out;
+}
+
+.filterButtons button:hover {
+    background-color: var(--btn-primary-hover-bg);
+}
+
+.filterButtons .active {
+    background-color: blue;
+    color: #fff;
+}
+
 .btn:hover {
     background-color: var(--btn-primary-hover-bg);
 }
