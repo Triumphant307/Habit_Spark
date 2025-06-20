@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useHabits } from "../../context/HabitContext";
+import tips from '../../data/tips.json'
 import styles from '../../Styles/suggestionCard.module.css' 
 import { toast } from "react-toastify";
 import Aos from 'aos'
@@ -9,19 +10,7 @@ const SuggestionCard = () => {
 
   const { addHabit } = useHabits()
 
- const tips = [
-  {icon: '💧', title: 'Drink water regularly', category: 'Health'},
-  {icon: '🏃', title: 'Exercise daily', category: 'Health'},
-  {icon: '🛌', title: 'Get enough sleep', category: 'Wellness'},
-  {icon: '🥗', title: 'Eat healthy meals', category: 'Health'},
-  {icon: '🧘', title: 'Practice mindfulness', category: 'Wellness'},
-  {icon: '📚', title: 'Read books daily', category: 'Learning'},
-  {icon: '📝', title: 'Journal your thoughts', category: 'Wellness'},
-  {icon: '🌱', title: 'Learn something new', category: 'Learning'},
-  {icon: '🚶', title: 'Take daily walks', category: 'Health'},
-  {icon: '🧹', title: 'Declutter your space', category: 'Productivity'},
-  {icon: '🎨', title: 'Engage in a hobby', category: 'Wellness'},
- ]
+
 
 
 
