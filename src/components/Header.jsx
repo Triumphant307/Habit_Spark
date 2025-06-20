@@ -1,5 +1,5 @@
 import Style from '../Styles/Header.module.css';
-import ThemeToggle from './ThemeToggle';
+import ThemeToggle from '../Theme/ThemeToggle.jsx';
 import { NavLink } from 'react-router-dom';
 import { useState, useEffect, useRef  } from 'react';
 const Header = () => {

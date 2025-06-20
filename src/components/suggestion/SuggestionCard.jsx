@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useHabits } from "../../context/HabitContext";
 import tips from '../../data/tips.json'
 import styles from '../../Styles/suggestionCard.module.css' 
+import useLocalStorage from "../../Hooks/useLocalStorage";
 import { toast } from "react-toastify";
 import Aos from 'aos'
 
@@ -18,13 +19,7 @@ const SuggestionCard = () => {
     Aos.init({ duration: 1000})
   }, [])
 
-   const [filter, setFilter] = useState(() => {
-    return localStorage.getItem('habitFilter') || 'All'
-   })
-
-   useEffect (() => {
-    localStorage.setItem('habitFilter', filter)
-   }, [filter])
+   const [filter, setFilter]  = useLocalStorage("habitFilter", "All")
 
    const filteredTips = filter === 'All'
     ? tips 
