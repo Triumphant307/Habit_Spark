@@ -1,61 +1,141 @@
 [
-    {
+    {   
+        "id": 1,
         "icon": "💧",
         "title": "Drink water regularly",
         "category": "Health"
     },
         
     {
+        "id": 2,
         "icon": "🏃", 
         "title": "Exercise daily",
         "category": "Health"
     },
 
     {
+        "id": 3,
         "icon": "🛌",
         "title": "Get enough sleep", 
         "category": "Wellness"
     },
 
-    {
+    {   
+        "id": 4,
         "icon": "🥗",
         "title": "Eat healthy meals",
         "category": "Health"
     },
 
     {
+        "id": 5,
         "icon": "🧘", 
         "title": "Practice mindfulness", 
         "category": "Wellness"
     },
 
     {
+        "id": 6,
         "icon": "📝", 
         "title": "Journal your thoughts", 
         "category": "Wellness"
     },
 
     {
+        "id": 7,
         "icon": "🌱", 
         "title": "Learn something new", 
         "category": "Learning"
     },
 
     {
+        "id": 8,
         "icon": "🚶", 
         "title": "Take daily walks", 
         "category": "Health"
     },
 
     {
+        "id": 9,
         "icon": "🧹", 
         "title": "Declutter your space", 
         "category": "Productivity"
     },
 
     {
+        "id": 10,
         "icon": "🎨", 
         "title": "Engage in a hobby", 
         "category": "Wellness"
+    },
+
+    { 
+        "id": 11,
+         "icon": "🧹", 
+        "title": "Clean your room weekly", 
+        "category": "Productivity" 
+    },
+
+    { 
+        "id": 12,
+        "icon": "🧘", 
+        "title": "Practice deep breathing",
+        "category": "Wellness" 
+    },
+
+    { 
+        "id": 13,
+        "icon": "📝",
+        "title": "Write down 3 goals",
+        "category": "Productivity" 
+    },
+
+    { 
+        "id": 14,
+        "icon": "🌙",
+        "title": "Sleep before 11 PM",
+        "category": "Health" 
+    },
+
+     {
+        "id": 15,
+        "icon": "🔌",
+        "title": "Take screen breaks",
+        "category": "Wellness"
+      },
+
+    {
+        "id": 16,
+        "icon": "🧠",
+        "title": "Learn a new word",
+        "category": "Learning"
+     },
+    
+     {
+        "id": 17,
+        "icon": "🤝",
+        "title": "Help someone today",
+        "category": "Wellness"
+      },
+    
+    {
+        "id": 18,
+        "icon": "📅",
+        "title": "Plan your day",
+        "category": "Productivity"
+    },
+    
+    {
+        "id": 19,
+        "icon": "🍵",
+        "title": "Have a mindful tea/coffee",
+        "category": "Wellness"
+     },
+
+    {
+        "id": 20,
+        "icon": "🎯",
+        "title": "Set a daily focus",
+        "category": "Productivity"
     }
 ]

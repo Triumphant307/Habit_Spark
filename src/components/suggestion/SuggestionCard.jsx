@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useHabits } from "../../context/HabitContext";
 import { motion, AnimatePresence } from "framer-motion";
+import { getTipsByCategory } from "../../utils/getTipsByCatergory";
 import tips from '../../data/tips.json'
 import styles from '../../Styles/suggestionCard.module.css' 
 import useLocalStorage from "../../Hooks/useLocalStorage";
@@ -22,16 +23,14 @@ const SuggestionCard = () => {
 
    const [filter, setFilter]  = useLocalStorage("habitFilter", "All")
 
-   const filteredTips = filter === 'All'
-    ? tips 
-    : tips.filter(tip => tip.category === filter)
+    const categories = ['All', 'Health', 'Wellness', 'Learning', 'Productivity']
 
-    const catergories = ['All', 'Health', 'Wellness', 'Learning', 'Productivity']
+  const filteredTips = getTipsByCategory(filter)
 
   return (
           <>
           <div className={styles.filterButtons}>
-              {catergories.map(catergory => (
+              {categories.map(catergory => (
                 <button
                  type="button"
                  onClick={() => setFilter(catergory)}
@@ -49,15 +48,16 @@ const SuggestionCard = () => {
         <AnimatePresence>
         {filteredTips.map((tip, index) => (
           <motion.div 
+            key= {tip.id}
             layout
-           key={index}
+          //  key={index}
            className={styles.card} 
            style={{ textAlign: 'center' }} 
            data-aos="fade-up"  
            data-aos-easing="ease-in-out-back" 
-           initial= {{ opacity: 0, y: 20}}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0, scale: 0.9 }}
             transition={{ duration: 0.3 }}
           >
             <span className={styles.icon} style={{ fontSize: '2rem' }}>{tip.icon}</span>
