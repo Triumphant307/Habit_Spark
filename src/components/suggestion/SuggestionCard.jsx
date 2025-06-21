@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useHabits } from "../../context/HabitContext";
+import { motion, AnimatePresence } from "framer-motion";
 import tips from '../../data/tips.json'
 import styles from '../../Styles/suggestionCard.module.css' 
 import useLocalStorage from "../../Hooks/useLocalStorage";
@@ -45,13 +46,19 @@ const SuggestionCard = () => {
           <div 
       className={styles.tipCard} 
       style={{ display: 'flex', justifyContent: 'center', flexWrap: 'wrap', marginTop: '30px', gap: '20px' }}>
+        <AnimatePresence>
         {filteredTips.map((tip, index) => (
-          <div 
+          <motion.div 
+            layout
            key={index}
            className={styles.card} 
            style={{ textAlign: 'center' }} 
            data-aos="fade-up"  
            data-aos-easing="ease-in-out-back" 
+           initial= {{ opacity: 0, y: 20}}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            transition={{ duration: 0.3 }}
           >
             <span className={styles.icon} style={{ fontSize: '2rem' }}>{tip.icon}</span>
             <h3>{tip.title}</h3>
@@ -62,9 +69,11 @@ const SuggestionCard = () => {
             }}
               style={{ display: 'block', margin: '0 auto' }}
             >Add Habit</button>
-          </div>
+          </motion.div>
         ))}
+        </AnimatePresence>
       </div>
+      
           </>
 
   )
