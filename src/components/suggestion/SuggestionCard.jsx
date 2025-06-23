@@ -41,7 +41,7 @@ console.log(tips)
           <div 
       className={styles.tipCard} 
       style={{ display: 'flex', justifyContent: 'center', flexWrap: 'wrap', marginTop: '30px', gap: '20px' }}>
-        <AnimatePresence mode="wait">
+        <AnimatePresence >
         {filteredTips.map((tip, index) => (
 
       <AnimatedTipCard

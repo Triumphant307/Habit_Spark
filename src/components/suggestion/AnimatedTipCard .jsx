@@ -15,7 +15,7 @@ const AnimatedTipCard = ({ tip, addHabit }) => {
       initial={{ opacity: 0, scale: 0.9 }}
       animate={inView ? { opacity: 1, scale: 1 } : {}}
       exit={{ opacity: 0, scale: 0.9 }}
-      transition={{ duration: 0.3 }}
+      // transition={{ duration: 0.3 }}
     >
       <span className={styles.icon} style={{ fontSize: '2rem' }}>{tip.icon}</span>
       <h3>{tip.title}</h3>
