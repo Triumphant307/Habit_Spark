@@ -41,6 +41,17 @@
     transition: background-color 0.3s ease;
 }
 
+.btn:disabled {
+    background-color: #9ca3af;
+    cursor: not-allowed;
+    opacity: 0.6;
+    pointer-events: none;
+}
+
+.btn:disabled:hover {
+    background-color: none;
+}
+
 .filterButtons {
     display: flex;
     gap: 10px;

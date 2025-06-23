@@ -1,9 +1,25 @@
 import { useInView } from "react-intersection-observer";
+import { useHabits } from "../../context/HabitContext";
 import { motion, AnimatePresence,  } from "framer-motion";
+import useLocalStorage from "../../Hooks/useLocalStorage";
 import styles from '../../Styles/suggestionCard.module.css'
 import { toast } from "react-toastify";
 const AnimatedTipCard = ({ tip, addHabit }) => {
   const { ref, inView } = useInView({ triggerOnce: true });
+
+  const { habits} = useHabits()
+
+  const [addedTips, setAddedTips] = useLocalStorage("addedTips", [])
+
+const alreadyAdded = addedTips.includes(tip.id)
+
+const handleAdd = () => {
+  addHabit({ ...tip, target: 30, streak: 0 });
+  setAddedTips([...addedTips, tip.id])
+  toast.success(`${tip.title} ${tip.icon} added to your habits!`);
+}
+
+
 
   return (
     <motion.div
@@ -21,13 +37,11 @@ const AnimatedTipCard = ({ tip, addHabit }) => {
       <h3>{tip.title}</h3>
       <button
         className={styles.btn}
-        onClick={() => {
-          addHabit({ ...tip, target: 30, streak: 0 });
-          toast.success(`${tip.title} ${tip.icon} added to your habits!`);
-        }}
+        onClick={handleAdd}
+        disabled= {alreadyAdded}
         style={{ display: 'block', margin: '0 auto' }}
       >
-        Add Habit
+       {alreadyAdded ? "Added ✅" : "Add Habit"}
       </button>
     </motion.div>
   );

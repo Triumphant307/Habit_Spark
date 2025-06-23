@@ -4,7 +4,7 @@ import { motion, AnimatePresence,  } from "framer-motion";
 import { getTipsByCategory } from "../../utils/getTipsByCatergory";
 import tips from '../../data/tips.json'
 import styles from '../../Styles/suggestionCard.module.css' 
-import AnimatedTipCard from "./AnimatedTipCard ";
+import AnimatedTipCard from "./AnimatedTipCard.jsx";
 import useLocalStorage from "../../Hooks/useLocalStorage";
 import { toast } from "react-toastify";
 
@@ -20,7 +20,7 @@ const SuggestionCard = () => {
 
   const filteredTips = getTipsByCategory(filter)
 
-console.log(tips)
+
 
   return (
           <>
@@ -31,6 +31,8 @@ console.log(tips)
                  type="button"
                  onClick={() => setFilter(catergory)}
                  className={filter === catergory ? styles.active: ''}
+                 aria-pressed={filter === catergory}
+                //  title={filter === catergory}
                 >
                   {catergory}
                 </button>
@@ -42,7 +44,7 @@ console.log(tips)
       className={styles.tipCard} 
       style={{ display: 'flex', justifyContent: 'center', flexWrap: 'wrap', marginTop: '30px', gap: '20px' }}>
         <AnimatePresence >
-        {filteredTips.map((tip, index) => (
+        {filteredTips.map((tip) => (
 
       <AnimatedTipCard
       key={`${filter}-${tip.id || tip.title}`} 
