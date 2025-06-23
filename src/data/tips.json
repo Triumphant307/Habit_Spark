@@ -137,5 +137,50 @@
         "icon": "🎯",
         "title": "Set a daily focus",
         "category": "Productivity"
-    }
+    },
+
+   {
+
+        "id": 21,
+        "icon": "📵",
+        "title": "Limit screen time",
+        "category": "Wellness"
+    
+    },
+
+  {
+
+        "id": 22,
+        "icon": "🧴",
+        "title": "Maintain skincare routine",
+        "category": "Wellness"
+  },
+
+  {
+        "id": 23,
+        "icon": "💤",
+        "title": "Set a consistent sleep schedule",
+        "category": "Health"
+  },
+
+  {
+        "id": 24,
+        "icon": "💻",
+        "title": "Take regular screen breaks",
+        "category": "Productivity"
+  },
+
+  {
+        "id": 25,
+        "icon": "🎧",
+        "title": "Listen to an educational podcast",
+        "category": "Learning"
+  },
+
+  {
+        "id": 26,
+        "icon": "🧮",
+        "title": "Practice mental math",
+        "category": "Learning"
+  }
 ]
