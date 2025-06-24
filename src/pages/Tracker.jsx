@@ -1,11 +1,11 @@
-import style from '../Styles/Tracker.module.css';
-import { useHabits } from '../context/HabitContext';
+import style from "../Styles/Tracker.module.css";
+import { useHabits } from "../context/HabitContext";
 
 const Tracker = () => {
   const { habits } = useHabits();
 
   return (
-    <div className='tracker-container'>
+    <div className="tracker-container">
       <h1>Habit Tracker</h1>
       <ul>
         {habits.map((habit, index) => (

@@ -1,8 +1,4 @@
 .tipCard {
-  /* display: flex;
-    flex-direction: column;
-    justify-content: center;
-    flex-wrap: wrap; */
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 20px;

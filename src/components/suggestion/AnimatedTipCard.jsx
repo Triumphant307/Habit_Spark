@@ -1,13 +1,10 @@
 import { useInView } from "react-intersection-observer";
-import { useHabits } from "../../context/HabitContext";
 import { motion, AnimatePresence } from "framer-motion";
 import useLocalStorage from "../../Hooks/useLocalStorage";
 import styles from "../../Styles/suggestionCard.module.css";
 import { toast } from "react-toastify";
 const AnimatedTipCard = ({ tip, addHabit }) => {
   const { ref, inView } = useInView({ triggerOnce: true });
-
-  const { habits } = useHabits();
 
   const [addedTips, setAddedTips] = useLocalStorage("addedTips", []);
 
