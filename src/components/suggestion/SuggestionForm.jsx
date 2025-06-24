@@ -81,6 +81,7 @@ const SuggestionForm = () => {
         onSubmit={handleAddHabit}
       >
         <input 
+          className={styles.TitleInput}
           type="text" 
           value={title} 
           onChange={(e) => setTitle((e.target.value))} 
@@ -90,9 +91,8 @@ const SuggestionForm = () => {
           <button 
             className={styles.btn} 
             type="button" 
-            onClick={() => setShowPicker(!showPicker)
-              
-            } 
+            onClick={() => setShowPicker(!showPicker)}
+            title={icon ? `Selected: ${icon}` : 'Show Emoji'} 
           >
             {icon ? `Selected: ${icon}` : 'Show Emoji'}
           </button>
@@ -107,6 +107,7 @@ const SuggestionForm = () => {
             </div>
 
         <input 
+          className={styles.TargetInput}
           type="number" 
           value={target} 
           onChange={(e) => setTarget(Number(e.target.value))} 
@@ -116,6 +117,7 @@ const SuggestionForm = () => {
         className={styles.btn} 
         type="submit" 
         onClick={handleAddHabit}
+        title="Add new Habits"
         >
         Add New Habit</button>
         {error && <div className={styles.error}>{error}</div>}
