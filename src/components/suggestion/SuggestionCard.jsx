@@ -1,4 +1,3 @@
-// import { useEffect, useRef, useState } from "react";
 import { useHabits } from "../../context/HabitContext";
 import { motion, AnimatePresence } from "framer-motion";
 import { getTipsByCategory } from "../../utils/getTipsByCatergory";
@@ -12,11 +11,20 @@ const SuggestionCard = () => {
   const { addHabit } = useHabits();
 
   const [filter, setFilter] = useLocalStorage("habitFilter", "All");
+  const [favorites, setFavorites] = useLocalStorage("habitFavorites", []);
+
   const [searchQuery, setSearchQuery] = useState("");
 
-  const categories = ["All", "Health", "Wellness", "Learning", "Productivity"];
+  const categories = [
+    "All",
+    "Health",
+    "Wellness",
+    "Learning",
+    "Productivity",
+    "Favorites",
+  ];
 
-  const filteredTips = getTipsByCategory(filter).filter((tip) =>
+  const filteredTips = getTipsByCategory(filter, favorites).filter((tip) =>
     tip.title.toLowerCase().includes(searchQuery.toLowerCase())
   );
 
@@ -26,6 +34,7 @@ const SuggestionCard = () => {
       <div className={styles.filterButtons}>
         {categories.map((catergory) => (
           <button
+            key={catergory}
             type="button"
             onClick={() => setFilter(catergory)}
             className={filter === catergory ? styles.active : ""}
@@ -53,9 +62,19 @@ const SuggestionCard = () => {
               animate={{ opacity: 1, y: 0 }}
               className={styles.noResults}
             >
-              <span style={{ fontSize: "2rem" }}>🔍</span>
-              <p>No suggestions found</p>
-              <small>Try a different keyword or browse categories above.</small>
+              <span style={{ fontSize: "2rem" }}>
+                {filter === "Favorites" ? "⭐" : "🔍"}
+              </span>
+              <p>
+                {filter === "Favorites"
+                  ? "No favorites yet"
+                  : "No suggestions found"}
+              </p>
+              <small>
+                {filter === "Favorites"
+                  ? "Try favoriting a suggestion by clicking the heart icon ❤️"
+                  : "Try a different keyword or browse categories above."}
+              </small>
             </motion.div>
           </>
         ) : (
@@ -65,6 +84,8 @@ const SuggestionCard = () => {
                 key={`${filter}-${tip.id || tip.title}`}
                 tip={tip}
                 addHabit={addHabit}
+                favorites={favorites}
+                setFavorites={setFavorites}
               />
             ))}
           </AnimatePresence>
