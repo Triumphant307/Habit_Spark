@@ -85,6 +85,27 @@
   margin-bottom: 0.5rem;
 }
 
+.noResults {
+  text-align: center;
+  padding: 3rem 1rem;
+  color: var(--text-primary);
+  border-radius: 1rem;
+  background-color: var(--bg-card);
+  max-width: 400px;
+  margin: 2rem auto;
+  box-shadow: var(--box-shadow);
+  transition: all 0.3s ease;
+}
+
+.noResults p {
+  font-size: 1.25rem;
+  margin: 0.5rem 0;
+}
+
+.noResults small {
+  color: #888;
+}
+
 @media (max-width: 600px) {
   .tipCard {
     grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));

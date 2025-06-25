@@ -1,14 +1,12 @@
 // import { useEffect, useRef, useState } from "react";
 import { useHabits } from "../../context/HabitContext";
-import { AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { getTipsByCategory } from "../../utils/getTipsByCatergory";
 import Search from "./Search.jsx";
-// import tips from '../../data/tips.json'
 import styles from "../../Styles/suggestionCard.module.css";
 import AnimatedTipCard from "./AnimatedTipCard.jsx";
 import useLocalStorage from "../../Hooks/useLocalStorage";
 import { useState } from "react";
-// import { toast } from "react-toastify";
 
 const SuggestionCard = () => {
   const { addHabit } = useHabits();
@@ -32,7 +30,6 @@ const SuggestionCard = () => {
             onClick={() => setFilter(catergory)}
             className={filter === catergory ? styles.active : ""}
             aria-pressed={filter === catergory}
-            //  title={filter === catergory}
           >
             {catergory}
           </button>
@@ -50,7 +47,17 @@ const SuggestionCard = () => {
         }}
       >
         {filteredTips.length === 0 ? (
-          <p> oops No Search Result Was Found</p>
+          <>
+            <motion.div
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              className={styles.noResults}
+            >
+              <span style={{ fontSize: "2rem" }}>🔍</span>
+              <p>No suggestions found</p>
+              <small>Try a different keyword or browse categories above.</small>
+            </motion.div>
+          </>
         ) : (
           <AnimatePresence>
             {filteredTips.map((tip) => (
