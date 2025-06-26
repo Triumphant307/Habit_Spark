@@ -41,7 +41,9 @@ const SuggestionCard = () => {
             aria-pressed={filter === catergory}
           >
             {catergory === "Favorites"
-              ? `❤️ Favorites${favorites.length > 0 ? ` (${favorites.length})` : ""}`
+              ? `❤️ Favorites${
+                  favorites.length > 0 ? ` (${favorites.length})` : ""
+                }`
               : catergory}
           </button>
         ))}
