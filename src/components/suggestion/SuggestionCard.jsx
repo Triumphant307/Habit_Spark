@@ -40,7 +40,9 @@ const SuggestionCard = () => {
             className={filter === catergory ? styles.active : ""}
             aria-pressed={filter === catergory}
           >
-            {catergory}
+            {catergory === "Favorites"
+              ? `❤️ Favorites${favorites.length > 0 ? ` (${favorites.length})` : ""}`
+              : catergory}
           </button>
         ))}
       </div>
