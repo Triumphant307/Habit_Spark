@@ -179,5 +179,66 @@
     "icon": "🧮",
     "title": "Practice mental math",
     "category": "Learning"
+  },
+
+  {
+    "id": 27,
+    "icon": "📖",
+    "title": "Read 10 pages of a book",
+    "category": "Learning"
+  },
+  {
+    "id": 28,
+    "icon": "🦷",
+    "title": "Floss your teeth",
+    "category": "Health"
+  },
+  {
+    "id": 29,
+    "icon": "🥦",
+    "title": "Eat a serving of vegetables",
+    "category": "Health"
+  },
+  {
+    "id": 30,
+    "icon": "📓",
+    "title": "Reflect on your day",
+    "category": "Wellness"
+  },
+  {
+    "id": 31,
+    "icon": "🧑‍💻",
+    "title": "Practice coding",
+    "category": "Learning"
+  },
+  {
+    "id": 32,
+    "icon": "📅",
+    "title": "Review your calendar",
+    "category": "Productivity"
+  },
+  {
+    "id": 33,
+    "icon": "🧺",
+    "title": "Do a load of laundry",
+    "category": "Productivity"
+  },
+  {
+    "id": 34,
+    "icon": "🧂",
+    "title": "Cook a homemade meal",
+    "category": "Wellness"
+  },
+  {
+    "id": 35,
+    "icon": "🧑‍🎨",
+    "title": "Draw or doodle",
+    "category": "Wellness"
+  },
+  {
+    "id": 36,
+    "icon": "🧑‍🤝‍🧑",
+    "title": "Connect with a friend",
+    "category": "Wellness"
   }
 ]
