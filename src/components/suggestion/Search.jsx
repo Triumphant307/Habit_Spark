@@ -1,4 +1,4 @@
-import style from "../../Styles/SearchBar.module.css";
+import style from "../../Styles/Suggestion/SearchBar.module.css";
 import { useRef } from "react";
 import { FaSearch, FaTimes } from "react-icons/fa";
 const Search = ({ searchQuery, setSearchQuery }) => {

@@ -2,7 +2,7 @@ import { useInView } from "react-intersection-observer";
 import { motion, AnimatePresence } from "framer-motion";
 import { FaHeart } from "react-icons/fa";
 import useLocalStorage from "../../Hooks/useLocalStorage";
-import styles from "../../Styles/suggestionCard.module.css";
+import styles from "../../Styles/Suggestion/suggestionCard.module.css";
 import { toast } from "react-toastify";
 const AnimatedTipCard = ({ tip, addHabit, favorites, setFavorites }) => {
   const { ref, inView } = useInView({ triggerOnce: true });

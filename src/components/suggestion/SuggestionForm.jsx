@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import styles from "../../Styles/SuggestionForm.module.css";
+import styles from "../../Styles/Suggestion/SuggestionForm.module.css";
 import { useHabits } from "../../context/HabitContext";
 import { toast } from "react-toastify";
 import data from "@emoji-mart/data";

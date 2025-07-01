@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import Aos from "aos";
-import styles from "../Styles/QuotesMotivation.module.css";
+import styles from "../../Styles/Home/QuotesMotivation.module.css";
 
 const fallBackQuote = [
   { q: "Believe you can and you're halfway there.", a: "Theodore Roosevelt" },

@@ -1,8 +1,8 @@
-import styles from "../Styles/Home.module.css";
-import FeaturesdHighlight from "../components/FeaturedHighlight";
-import QuotesMotivation from "../components/QuotesMotivation";
-import CompletedPreview from "../components/CompletedPreview";
-import LottieAnimation from "../components/LottieAniamtion";
+import styles from "../Styles/Home/Home.module.css";
+import FeaturedHighlight from "../components/Home/FeaturedHighlight";
+import QuotesMotivation from "../components/Home/QuotesMotivation";
+import CompletedPreview from "../components/Home/CompletedPreview";
+import LottieAnimation from "../components/Home/LottieAniamtion";
 import { FaBullseye, FaDumbbell, FaStar, FaFlag } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
@@ -77,7 +77,7 @@ const Home = () => {
             </Link>
           </div>
         </div>
-        <FeaturesdHighlight />
+        <FeaturedHighlight />
 
         <div style={{ textAlign: "center", padding: "2rem" }}>
           <h2>Stay Consistent, Stay Motivated</h2>

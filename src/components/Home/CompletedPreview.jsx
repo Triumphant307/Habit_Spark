@@ -1,7 +1,7 @@
-import styles from "../Styles/CompletedPreview.module.css";
+import styles from "../../Styles/Home/CompletedPreview.module.css";
 import Aos from "aos";
 import { useEffect } from "react";
-import ProgressTrack from "./ProgressTracker";
+import ProgressTrack from "../ProgressTracker";
 
 const CompletedPreview = () => {
   const habits = [

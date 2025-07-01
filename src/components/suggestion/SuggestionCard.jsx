@@ -2,7 +2,7 @@ import { useHabits } from "../../context/HabitContext";
 import { motion, AnimatePresence } from "framer-motion";
 import { getTipsByCategory } from "../../utils/getTipsByCatergory";
 import Search from "./Search.jsx";
-import styles from "../../Styles/suggestionCard.module.css";
+import styles from "../../Styles/Suggestion/suggestionCard.module.css";
 import AnimatedTipCard from "./AnimatedTipCard.jsx";
 import useLocalStorage from "../../Hooks/useLocalStorage";
 import { useState } from "react";
