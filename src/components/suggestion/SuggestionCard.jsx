@@ -4,6 +4,7 @@ import { getTipsByCategory } from "../../utils/getTipsByCatergory";
 import Search from "./Search.jsx";
 import styles from "../../Styles/Suggestion/suggestionCard.module.css";
 import AnimatedTipCard from "./AnimatedTipCard.jsx";
+import { MdGridView, MdViewList } from "react-icons/md";
 import useLocalStorage from "../../Hooks/useLocalStorage";
 import { useState } from "react";
 
@@ -14,6 +15,7 @@ const SuggestionCard = () => {
   const [favorites, setFavorites] = useLocalStorage("habitFavorites", []);
 
   const [searchQuery, setSearchQuery] = useState("");
+  const [viewMode, setViewMode] = useState("grid");
 
   const categories = [
     "All",
@@ -28,9 +30,32 @@ const SuggestionCard = () => {
     tip.title.toLowerCase().includes(searchQuery.toLowerCase())
   );
 
+  const toogleViewMode = () => {
+    setViewMode((prev) => (prev === "grid" ? "list" : "grid"));
+  };
+
   return (
     <>
       <Search searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
+      <div className={styles.viewToggle}>
+        <button
+          className={viewMode === "grid" ? styles.active : ""}
+          onClick={toogleViewMode}
+          aria-label="Grid View"
+          title="Toogle grid"
+        >
+          <MdGridView size={20} />
+        </button>
+        <button
+          className={viewMode === "list" ? styles.active : ""}
+          onClick={() => setViewMode("list")}
+          aria-label="List View"
+          title="Toogle List"
+        >
+          <MdViewList size={20} />
+        </button>
+      </div>
+
       <div className={styles.filterButtons}>
         {categories.map((catergory) => (
           <button
@@ -90,6 +115,7 @@ const SuggestionCard = () => {
                 addHabit={addHabit}
                 favorites={favorites}
                 setFavorites={setFavorites}
+                viewMode={viewMode}
               />
             ))}
           </AnimatePresence>

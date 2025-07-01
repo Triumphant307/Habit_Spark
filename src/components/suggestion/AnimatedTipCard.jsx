@@ -4,7 +4,13 @@ import { FaHeart } from "react-icons/fa";
 import useLocalStorage from "../../Hooks/useLocalStorage";
 import styles from "../../Styles/Suggestion/suggestionCard.module.css";
 import { toast } from "react-toastify";
-const AnimatedTipCard = ({ tip, addHabit, favorites, setFavorites }) => {
+const AnimatedTipCard = ({
+  tip,
+  addHabit,
+  favorites,
+  setFavorites,
+  viewMode,
+}) => {
   const { ref, inView } = useInView({ triggerOnce: true });
 
   const [addedTips, setAddedTips] = useLocalStorage("addedTips", []);
@@ -34,12 +40,14 @@ const AnimatedTipCard = ({ tip, addHabit, favorites, setFavorites }) => {
       ref={ref}
       layout
       key={tip.id}
-      className={styles.card}
+      className={`${styles.card} ${
+        viewMode === "list" ? styles.listView : styles.gridView
+      } `}
       style={{ textAlign: "center" }}
       initial={{ opacity: 0, scale: 0.9 }}
       animate={inView ? { opacity: 1, scale: 1 } : {}}
       exit={{ opacity: 0, scale: 0.9 }}
-      // transition={{ duration: 0.3 }}
+      transition={{ duration: 0.5, ease: "easeInOut" }}
     >
       <button className={styles.btnHeart} onClick={() => toggleFavorite(tip)}>
         <FaHeart color={favorites.includes(tip.id) ? "red" : "gray"} />
