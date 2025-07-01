@@ -1,13 +1,14 @@
 import style from "../../Styles/Suggestion/SearchBar.module.css";
 import { useRef } from "react";
 import { FaSearch, FaTimes } from "react-icons/fa";
-const Search = ({ searchQuery, setSearchQuery }) => {
+const Search = ({ searchQuery, setSearchQuery, resultRef }) => {
   const handleClear = () => setSearchQuery("");
   const inputRef = useRef(null);
 
   const handleKeyDown = (e) => {
     if (e.key === "Enter") {
       inputRef.current?.blur();
+      resultRef.current?.scrollIntoView({ behavior: "smooth" });
     }
   };
 

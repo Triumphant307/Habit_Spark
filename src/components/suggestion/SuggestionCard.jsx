@@ -6,7 +6,7 @@ import styles from "../../Styles/Suggestion/suggestionCard.module.css";
 import AnimatedTipCard from "./AnimatedTipCard.jsx";
 import { MdGridView, MdViewList } from "react-icons/md";
 import useLocalStorage from "../../Hooks/useLocalStorage";
-import { useState } from "react";
+import { useState, useRef } from "react";
 
 const SuggestionCard = () => {
   const { addHabit } = useHabits();
@@ -16,6 +16,8 @@ const SuggestionCard = () => {
 
   const [searchQuery, setSearchQuery] = useState("");
   const [viewMode, setViewMode] = useState("grid");
+
+  const resultRef = useRef(null);
 
   const categories = [
     "All",
@@ -36,7 +38,11 @@ const SuggestionCard = () => {
 
   return (
     <>
-      <Search searchQuery={searchQuery} setSearchQuery={setSearchQuery} />
+      <Search
+        searchQuery={searchQuery}
+        setSearchQuery={setSearchQuery}
+        resultRef={resultRef}
+      />
       <div className={styles.viewToggle}>
         <button
           className={viewMode === "grid" ? styles.active : ""}
@@ -59,6 +65,7 @@ const SuggestionCard = () => {
       <div className={styles.filterButtons}>
         {categories.map((catergory) => (
           <button
+          ref={resultRef}
             key={catergory}
             type="button"
             onClick={() => setFilter(catergory)}
