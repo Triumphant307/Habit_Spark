@@ -15,7 +15,7 @@ const SuggestionCard = () => {
   const [favorites, setFavorites] = useLocalStorage("habitFavorites", []);
 
   const [searchQuery, setSearchQuery] = useState("");
-  const [viewMode, setViewMode] = useState("grid");
+  const [viewMode, setViewMode] = useLocalStorage("viewMode", "grid");
 
   const resultRef = useRef(null);
 
@@ -65,7 +65,7 @@ const SuggestionCard = () => {
       <div className={styles.filterButtons}>
         {categories.map((catergory) => (
           <button
-          ref={resultRef}
+            ref={resultRef}
             key={catergory}
             type="button"
             onClick={() => setFilter(catergory)}
