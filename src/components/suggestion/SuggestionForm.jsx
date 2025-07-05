@@ -4,6 +4,7 @@ import { useHabits } from "../../context/HabitContext";
 import { toast } from "react-toastify";
 import data from "@emoji-mart/data";
 import Picker from "@emoji-mart/react";
+import { Link } from "react-router-dom";
 
 const SuggestionForm = () => {
   const { addHabit } = useHabits();
@@ -58,7 +59,17 @@ const SuggestionForm = () => {
     });
 
     toast.dismiss();
-    toast.success(`${title.trim()} ${icon} added to your habits!`);
+    toast.success(
+      <span>
+        {`${title.trim()} ${icon} added to your habits!`}
+        <Link
+          to="/tracker"
+          style={{ color: "#4caf50", textDecoration: "underline" }}
+        >
+          Go to Tracker
+        </Link>
+      </span>
+    );
 
     // Reset form fields after adding habit
     setTitle("");

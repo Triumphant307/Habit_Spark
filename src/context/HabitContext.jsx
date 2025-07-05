@@ -9,8 +9,14 @@ export const HabitProvider = ({ children }) => {
     setHabits((prevHabits) => [...prevHabits, habit]);
   };
 
+  const removeHabit = (habitId) => {
+    setHabits((prevHabits) =>
+      prevHabits.filter((habit) => habit.id !== habitId)
+    );
+  };
+
   return (
-    <HabitContext.Provider value={{ habits, addHabit }}>
+    <HabitContext.Provider value={{ habits, addHabit, removeHabit }}>
       {children}
     </HabitContext.Provider>
   );

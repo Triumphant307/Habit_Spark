@@ -4,12 +4,15 @@ import { FaHeart } from "react-icons/fa";
 import useLocalStorage from "../../Hooks/useLocalStorage";
 import styles from "../../Styles/Suggestion/suggestionCard.module.css";
 import { toast } from "react-toastify";
+import { Link } from "react-router-dom";
+
 const AnimatedTipCard = ({
   tip,
   addHabit,
   favorites,
   setFavorites,
   viewMode,
+  removeHabit,
 }) => {
   const { ref, inView } = useInView({ triggerOnce: true });
 
@@ -20,7 +23,34 @@ const AnimatedTipCard = ({
   const handleAdd = () => {
     addHabit({ ...tip, target: 30, streak: 0 });
     setAddedTips([...addedTips, tip.id]);
-    toast.success(`${tip.title} ${tip.icon} added to your habits!`);
+    toast.success(
+      <span>
+        {`${tip.title.trim()} ${tip.icon} added to your habits! `}
+        <Link
+          to="/tracker"
+          style={{ color: "#4caf50", textDecoration: "underline" }}
+        >
+          Go to Tracker
+        </Link>
+        <button
+          style={{
+            marginLeft: 10,
+            background: "none",
+            border: "none",
+            color: "#1976d2",
+            cursor: "pointer",
+            textDecoration: "underline",
+            padding: 0,
+            fontSize: "inherit",
+          }}
+          onClick={() => {
+            handleUndo(tip);
+          }}
+        >
+          Undo
+        </button>
+      </span>
+    );
   };
 
   const toggleFavorite = () => {
@@ -33,6 +63,12 @@ const AnimatedTipCard = ({
     } else {
       toast.success(`${tip.title} ${tip.icon} added to Favorites!`);
     }
+  };
+
+  const handleUndo = (habit) => {
+    removeHabit(habit.id);
+    setAddedTips((prev) => prev.filter((id) => id !== habit.id));
+    toast.info(`${tip.title.trim()} ${tip.icon} removed from your habits!`);
   };
 
   return (
@@ -49,7 +85,7 @@ const AnimatedTipCard = ({
       exit={{ opacity: 0, scale: 0.9 }}
       transition={{ duration: 0.5, ease: "easeInOut" }}
     >
-      <button className={styles.btnHeart} onClick={() => toggleFavorite(tip)}>
+      <button className={styles.btnHeart} onClick={toggleFavorite}>
         <FaHeart color={favorites.includes(tip.id) ? "red" : "gray"} />
       </button>
       <span className={styles.icon} style={{ fontSize: "2rem" }}>
