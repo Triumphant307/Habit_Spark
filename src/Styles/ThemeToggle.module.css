@@ -1,0 +1,32 @@
+.themeToggle {
+  background: none;
+  border: none;
+  cursor: pointer;
+  width: 40px;
+  height: 40px;
+  position: relative;
+}
+.icon {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  transition: all 0.5s ease;
+  position: relative;
+}
+
+.iconTransition {
+  transition: transform 0.5s cubic-bezier(0.4, 2, 0.6, 1), opacity 0.4s;
+  display: inline-block;
+}
+
+.sun {
+  background: #facc15;
+  box-shadow: 0 0 0 3px #facc15, 0 0 10px #facc15;
+}
+
+.moon {
+  background: #fff;
+  box-shadow: -5px 0 0 0 #fff, 0 0 10px #fff;
+  border-radius: 50%;
+  transform: translateX(5px) scale(0.9);
+}

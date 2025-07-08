@@ -1,17 +1,15 @@
+import styles from "../Styles/Suggestion/Suggestion.module.css";
+import SuggestionCard from "../components/suggestion/SuggestionCard";
+import SuggestionForm from "../components/suggestion/SuggestionForm";
+
 const Suggestions = () => {
   return (
-    <div className="suggestions">
-      <h1>Suggestions</h1>
-      <p>Here are some suggestions to help you improve your habits:</p>
-      <ul>
-        <li>Set specific and achievable goals.</li>
-        <li>Track your progress regularly.</li>
-        <li>Stay consistent with your routine.</li>
-        <li>Reward yourself for small achievements.</li>
-        <li>Seek support from friends or community.</li>
-      </ul>
+    <div className={styles.suggestions}>
+      <h1 className={styles.title}>Habit Suggestions</h1>
+      <SuggestionForm />
+      <SuggestionCard />
     </div>
   );
-}
+};
 
 export default Suggestions;

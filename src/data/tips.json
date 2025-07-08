@@ -1,0 +1,244 @@
+[
+  {
+    "id": 1,
+    "icon": "💧",
+    "title": "Drink water regularly",
+    "category": "Health"
+  },
+
+  {
+    "id": 2,
+    "icon": "🏃",
+    "title": "Exercise daily",
+    "category": "Health"
+  },
+
+  {
+    "id": 3,
+    "icon": "🛌",
+    "title": "Get enough sleep",
+    "category": "Wellness"
+  },
+
+  {
+    "id": 4,
+    "icon": "🥗",
+    "title": "Eat healthy meals",
+    "category": "Health"
+  },
+
+  {
+    "id": 5,
+    "icon": "🧘",
+    "title": "Practice mindfulness",
+    "category": "Wellness"
+  },
+
+  {
+    "id": 6,
+    "icon": "📝",
+    "title": "Journal your thoughts",
+    "category": "Wellness"
+  },
+
+  {
+    "id": 7,
+    "icon": "🌱",
+    "title": "Learn something new",
+    "category": "Learning"
+  },
+
+  {
+    "id": 8,
+    "icon": "🚶",
+    "title": "Take daily walks",
+    "category": "Health"
+  },
+
+  {
+    "id": 9,
+    "icon": "🧹",
+    "title": "Declutter your space",
+    "category": "Productivity"
+  },
+
+  {
+    "id": 10,
+    "icon": "🎨",
+    "title": "Engage in a hobby",
+    "category": "Wellness"
+  },
+
+  {
+    "id": 11,
+    "icon": "🧹",
+    "title": "Clean your room weekly",
+    "category": "Productivity"
+  },
+
+  {
+    "id": 12,
+    "icon": "🧘",
+    "title": "Practice deep breathing",
+    "category": "Wellness"
+  },
+
+  {
+    "id": 13,
+    "icon": "📝",
+    "title": "Write down 3 goals",
+    "category": "Productivity"
+  },
+
+  {
+    "id": 14,
+    "icon": "🌙",
+    "title": "Sleep before 11 PM",
+    "category": "Health"
+  },
+
+  {
+    "id": 15,
+    "icon": "🔌",
+    "title": "Take screen breaks",
+    "category": "Wellness"
+  },
+
+  {
+    "id": 16,
+    "icon": "🧠",
+    "title": "Learn a new word",
+    "category": "Learning"
+  },
+
+  {
+    "id": 17,
+    "icon": "🤝",
+    "title": "Help someone today",
+    "category": "Wellness"
+  },
+
+  {
+    "id": 18,
+    "icon": "📅",
+    "title": "Plan your day",
+    "category": "Productivity"
+  },
+
+  {
+    "id": 19,
+    "icon": "🍵",
+    "title": "Have a mindful tea/coffee",
+    "category": "Wellness"
+  },
+
+  {
+    "id": 20,
+    "icon": "🎯",
+    "title": "Set a daily focus",
+    "category": "Productivity"
+  },
+
+  {
+    "id": 21,
+    "icon": "📵",
+    "title": "Limit screen time",
+    "category": "Wellness"
+  },
+
+  {
+    "id": 22,
+    "icon": "🧴",
+    "title": "Maintain skincare routine",
+    "category": "Wellness"
+  },
+
+  {
+    "id": 23,
+    "icon": "💤",
+    "title": "Set a consistent sleep schedule",
+    "category": "Health"
+  },
+
+  {
+    "id": 24,
+    "icon": "💻",
+    "title": "Take regular screen breaks",
+    "category": "Productivity"
+  },
+
+  {
+    "id": 25,
+    "icon": "🎧",
+    "title": "Listen to an educational podcast",
+    "category": "Learning"
+  },
+
+  {
+    "id": 26,
+    "icon": "🧮",
+    "title": "Practice mental math",
+    "category": "Learning"
+  },
+
+  {
+    "id": 27,
+    "icon": "📖",
+    "title": "Read 10 pages of a book",
+    "category": "Learning"
+  },
+  {
+    "id": 28,
+    "icon": "🦷",
+    "title": "Floss your teeth",
+    "category": "Health"
+  },
+  {
+    "id": 29,
+    "icon": "🥦",
+    "title": "Eat a serving of vegetables",
+    "category": "Health"
+  },
+  {
+    "id": 30,
+    "icon": "📓",
+    "title": "Reflect on your day",
+    "category": "Wellness"
+  },
+  {
+    "id": 31,
+    "icon": "🧑‍💻",
+    "title": "Practice coding",
+    "category": "Learning"
+  },
+  {
+    "id": 32,
+    "icon": "📅",
+    "title": "Review your calendar",
+    "category": "Productivity"
+  },
+  {
+    "id": 33,
+    "icon": "🧺",
+    "title": "Do a load of laundry",
+    "category": "Productivity"
+  },
+  {
+    "id": 34,
+    "icon": "🧂",
+    "title": "Cook a homemade meal",
+    "category": "Wellness"
+  },
+  {
+    "id": 35,
+    "icon": "🧑‍🎨",
+    "title": "Draw or doodle",
+    "category": "Wellness"
+  },
+  {
+    "id": 36,
+    "icon": "🧑‍🤝‍🧑",
+    "title": "Connect with a friend",
+    "category": "Wellness"
+  }
+]

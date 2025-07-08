@@ -1,0 +1,52 @@
+.completedPreview {
+  padding: 2rem;
+  text-align: center;
+}
+
+.title {
+  font-size: 1.8rem;
+  margin-bottom: 1.5rem;
+  color: var(--text-primary);
+}
+
+.habitGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 2rem;
+}
+
+.habit {
+  background: var(--bg-card);
+  border-radius: 10px;
+  padding: 1.25rem;
+  margin: 1.25rem;
+  box-shadow: var(--box-shadow);
+  transition: transform 0.2s ease;
+  cursor: pointer;
+  color: var(--text-primary);
+}
+
+.habit:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--box-shadow-hover);
+}
+
+.habit:focus {
+  box-shadow: var(--box-shadow-focus);
+}
+
+.icon {
+  font-size: 2rem;
+}
+
+.habitTitle {
+  font-weight: 600;
+  font-size: 1.2rem;
+  margin-top: 0.5rem;
+  color: var(--text-primary);
+}
+
+.streak {
+  font-size: 1rem;
+  color: var(--text-secondary);
+}
