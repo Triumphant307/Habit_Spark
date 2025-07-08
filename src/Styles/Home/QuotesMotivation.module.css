@@ -1,0 +1,37 @@
+.QuotesMotivation {
+  text-align: center;
+  padding: 20px;
+  background-color: var(--bg-card);
+  border-radius: 10px;
+  box-shadow: var(--box-shadow);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.QuotesMotivation:hover {
+  transition: 1s ease-in-out;
+  box-shadow: var(--box-shadow-hover);
+  transform: translateY(-5px);
+}
+
+.QuotesMotivation:focus {
+  box-shadow: var(--box-shadow-focus);
+}
+
+.quotes {
+  font-size: 1.2rem;
+  color: var(--text-primary);
+  margin-bottom: 10px;
+  font-style: italic;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.quotes:hover {
+  transform: scale(1.03);
+  color: var(--accent, #007bff);
+}
+
+.author {
+  font-size: 1rem;
+  color: var(--text-secondary);
+  font-weight: bold;
+}
