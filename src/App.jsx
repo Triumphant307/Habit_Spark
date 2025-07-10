@@ -8,6 +8,7 @@ import Footer from "./components/Footer"
 import Suggestions from "./pages/Suggestions"
 import Completed from "./pages/Completed"
 import Tracker from "./pages/Tracker"
+import HabitDetails from "./components/Tracker/HabitDetails";
 import BackToTop from "./components/BackToTop"
 
 function App() {
@@ -34,6 +35,7 @@ function App() {
         <Route path="/suggestions" element={<Suggestions/>} />
         <Route path="/completed" element={<Completed/>} />
         <Route path="/tracker" element={<Tracker/>} />
+        <Route path="/habit/:id" element={<HabitDetails />} />
       </Routes>
     </main>
     

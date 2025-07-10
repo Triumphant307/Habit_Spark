@@ -1,0 +1,17 @@
+.tracker {
+    margin-top: -100px;
+}
+
+.title {
+     font-size: 2rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 1rem;
+}
+
+@media (max-width: 600px) {
+  .tracker {
+    margin-top: -50px;
+  }
+    
+}

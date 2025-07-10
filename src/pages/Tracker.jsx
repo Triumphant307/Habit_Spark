@@ -1,11 +1,13 @@
-import style from "../Styles/Tracker.module.css";
+import style from "../Styles/Tracker/Tracker.module.css";
+import { AnimatePresence } from "framer-motion";
+import TrackerCard from "../components/Tracker/TrackerCard";
 import { useHabits } from "../context/HabitContext";
 
 const Tracker = () => {
   const { habits } = useHabits();
 
   return (
-    <>
+    <section className={style.tracker}>
     {/* <div className="tracker-container">
       <h1>Habit Tracker</h1>
       <ul>
@@ -42,27 +44,16 @@ const Tracker = () => {
 
 
    <div className="tracker-page">
-      <h2 className={style.header}>Your Habits</h2>
+      <h2 className={style.title}>🎯 Your Habits</h2>
 
-      {habits.length === 0 ? (
-        <p className="text-gray-400">No habits added yet. Go to suggestions to add some!</p>
-      ) : (
-        <div className="grid gap-4">
-          {habits.map((habit) => (
-            <div
-              key={habit.id}
-              className="rounded-lg p-4 bg-[#1e1e1e] shadow-md border border-[#333]"
-            >
-              <span className="text-2xl">{habit.icon}</span>
-              <h3 className="text-lg font-semibold">{habit.title}</h3>
-              <p className="text-sm text-gray-400">Target: {habit.target} days</p>
-              <p className="text-sm text-gray-500">Streak: {habit.streak}</p>
-            </div>
-          ))}
-        </div>
-      )}
+
     </div>
-    </>
+   <AnimatePresence>
+    <TrackerCard 
+     habits={habits}
+    />
+    </AnimatePresence>
+    </section>
   );
 };
 
