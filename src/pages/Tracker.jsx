@@ -2,10 +2,11 @@ import style from "../Styles/Tracker/Tracker.module.css";
 import { AnimatePresence } from "framer-motion";
 import TrackerCard from "../components/Tracker/TrackerCard";
 import { useHabits } from "../context/HabitContext";
+import useLocalStorage from "../Hooks/useLocalStorage";
 
 const Tracker = () => {
   const { habits } = useHabits();
-
+ const [storedHabits, setStoredHabits] = useLocalStorage("trackedHabits", []);
   return (
     <section className={style.tracker}>
     {/* <div className="tracker-container">
@@ -41,7 +42,7 @@ const Tracker = () => {
       </div>
     </div> */}
 
-
+    
 
    <div className="tracker-page">
       <h2 className={style.title}>🎯 Your Habits</h2>
@@ -50,7 +51,8 @@ const Tracker = () => {
     </div>
    <AnimatePresence>
     <TrackerCard 
-     habits={habits}
+     habits={storedHabits}
+     
     />
     </AnimatePresence>
     </section>

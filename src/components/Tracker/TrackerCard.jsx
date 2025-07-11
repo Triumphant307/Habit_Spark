@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
+import ProgressTrack from "../ProgressTracker";
 import style from "../../Styles/Tracker/TrackerCard.module.css";
 const TrackerCard = ({ habits }) => {
   return (
@@ -21,14 +22,18 @@ const TrackerCard = ({ habits }) => {
             </motion.div>
           ) : (
             <div className={style.tipCard}>
-              {habits.map((habit) => (
+              {habits.map((habit) => {
+                const progress = Math.round((habit.streak / habit.target) * 100);
+              return  (
+                
                 <Link
                   to={`/habit/${habit.id}`}
                   className={style.cardLink}
+                  key={habit.id || habit.title}
                   title="Click for more details"
                 >
                   <motion.div
-                    key={habit.id}
+                    
                     className={style.card}
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
@@ -40,9 +45,11 @@ const TrackerCard = ({ habits }) => {
                       Target: {habit.target} days
                     </p>
                     <p className={style.habitStreak}>Streak: {habit.streak}</p>
+                    <ProgressTrack radius={50} stroke={5} progress={progress} />
                   </motion.div>
                 </Link>
-              ))}
+              )
+            })}
             </div>
           )}
         </div>
