@@ -1,7 +1,6 @@
-/* Styles/Tracker/TrackerCard.module.css */
 .tipCard {
   display: grid;
-    align-items: center;
+  align-items: center;
   text-align: center;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   grid-template-columns: repeat(3, 1fr);
@@ -9,24 +8,16 @@
   margin-top: 30px;
 }
 
-/* .tipCard {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 20px;
-  margin-top: 1.5rem;
-} */
-
-
 .habitIcon {
   font-size: 2rem;
-
 }
 
 .habitTitle {
   font-size: 1.25rem;
   margin-bottom: 0.5rem;
   color: var(--text-primary);
-  font-weight: bold;}
+  font-weight: bold;
+}
 
 .card {
   background-color: var(--bg-card);
@@ -38,10 +29,10 @@
 }
 
 .card:hover {
-  transform: scale(1.02);
-    box-shadow: var(--box-shadow-hover);
+  transform: scale(1.03);
+  transition: 0.3s;
+  box-shadow: var(--box-shadow-hover);
 }
-
 
 .card h3 {
   margin: 0.5rem 0;
@@ -52,8 +43,8 @@
 }
 
 .cardLink {
-    text-decoration: none;
-    color: inherit;
+  text-decoration: none;
+  color: inherit;
 }
 
 .emptyState {
@@ -63,7 +54,7 @@
   max-width: 600px;
   background-color: var(--bg-card);
   border-radius: 9px;
-    box-shadow: var(--box-shadow);
+  box-shadow: var(--box-shadow);
 }
 
 .emptyIcon {
@@ -82,36 +73,33 @@
 }
 
 .goSuggestBtn:hover {
-    background-color: var(--btn-primary-hover-bg);
+  background-color: var(--btn-primary-hover-bg);
 }
-
 
 @media (max-width: 640px) {
-
-
   .tipCard {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 20px;
-  margin-top: 1.5rem;
-}
-    .card {
-        padding: 0.5rem;
-    }
-    
-    .habitIcon {
-        font-size: 1.5rem;
-    }
-    
-    .habitTitle {
-        font-size: 1.1rem;
-    }
-    
-    .emptyState {
-        padding: 1rem;
-    }
-    
-    .emptyIcon {
-        font-size: 2.5rem;
-    }
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    margin-top: 1.5rem;
+  }
+  .card {
+    padding: 0.5rem;
+  }
+
+  .habitIcon {
+    font-size: 1.5rem;
+  }
+
+  .habitTitle {
+    font-size: 1.1rem;
+  }
+
+  .emptyState {
+    padding: 1rem;
+  }
+
+  .emptyIcon {
+    font-size: 2.5rem;
+  }
 }
