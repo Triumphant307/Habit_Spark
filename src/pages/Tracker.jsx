@@ -1,5 +1,6 @@
 import styles from "../Styles/Tracker/Tracker.module.css";
 import { motion, AnimatePresence } from "framer-motion";
+import { Link } from "react-router-dom";
 import TrackerCard from "../components/Tracker/TrackerCard";
 import { useHabits } from "../context/HabitContext";
 import Search from "../components/suggestion/Search";
@@ -42,6 +43,16 @@ const Tracker = () => {
               ? "Try a different keyword."
               : "Browse suggestions to start tracking habits."}
           </small>
+          <br />
+          <div>
+            {searchQuery ? (
+              ""
+            ) : (
+              <Link to="/suggestions" className={styles.goSuggestBtn}>
+                Browse Suggestions
+              </Link>
+            )}
+          </div>
         </motion.div>
       ) : (
         <AnimatePresence>

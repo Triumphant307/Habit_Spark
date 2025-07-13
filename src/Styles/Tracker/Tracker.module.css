@@ -21,6 +21,17 @@
   transition: all 0.3s ease;
 }
 
+.goSuggestBtn {
+  margin-top: 1rem;
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  background-color: var(--btn-primary-bg);
+  color: #fff;
+  border-radius: 6px;
+  text-decoration: none;
+  transition: 0.3s ease-in-out;
+}
+
 @media (max-width: 600px) {
   .tracker {
     margin-top: -50px;
