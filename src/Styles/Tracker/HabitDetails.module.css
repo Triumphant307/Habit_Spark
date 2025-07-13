@@ -63,6 +63,18 @@
   background-color: #059669;
 } */
 
+.react-calendar__tile.highlight {
+  background-color: #d1fae5 !important; /* Tailwind green-100 */
+  border-radius: 8px;
+  font-weight: bold;
+}
+
+.highlight {
+  background-color: #d1fae5; /* soft green */
+  font-weight: bold;
+  border-radius: 8px;
+}
+
 
 @media (max-width: 600px) {
     .details {

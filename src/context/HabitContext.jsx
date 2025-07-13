@@ -1,12 +1,21 @@
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
 
 const HabitContext = createContext();
 
 export const HabitProvider = ({ children }) => {
-  const [habits, setHabits] = useState([]);
+  const [habits, setHabits] = useState(() => {
+    const stored = localStorage.getItem("trackedHabits");
+    return stored ? JSON.parse(stored) : [];
+  });
+
+  // Save to localStorage whenever habits change
+  useEffect(() => {
+    localStorage.setItem("trackedHabits", JSON.stringify(habits));
+  }, [habits]);
 
   const addHabit = (habit) => {
-    setHabits((prevHabits) => [...prevHabits, habit]);
+    const newHabit = { id: Date.now(), ...habit };
+    setHabits((prevHabits) => [...prevHabits, newHabit]);
   };
 
   const removeHabit = (habitId) => {

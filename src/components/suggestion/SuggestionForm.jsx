@@ -56,6 +56,7 @@ const SuggestionForm = () => {
       icon,
       target,
       streak: 0,
+      history: []
     });
 
     toast.dismiss();

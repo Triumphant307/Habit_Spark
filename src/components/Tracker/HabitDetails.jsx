@@ -1,5 +1,8 @@
 import React from "react";
 import { useEffect } from "react";
+import Calendar from "react-calendar";
+import "react-calendar/dist/Calendar.css"; // default styles
+
 import { FaCheck, FaUndoAlt } from "react-icons/fa";
 import style from "../../Styles/Tracker/HabitDetails.module.css";
 import { useParams, Link } from "react-router-dom";
@@ -24,18 +27,31 @@ const HabitDetails = () => {
   useEffect(() => {
     if (habit.streak >= habit.target) {
       confetti({
-       particleCount: 100,
-      spread: 70,
-      origin: { y: 0.6 },
+        particleCount: 100,
+        spread: 70,
+        origin: { y: 0.6 },
       });
       toast.success("🎉 Congratulations! You've reached your target!");
     }
-  }, [habit.streak, habit.target])
+  }, [habit.streak, habit.target]);
 
   const handleDone = () => {
+    const today = new Date().toDateString();
+
+    if (habit.history?.includes(today)) {
+      toast.info("You've already marked this habit as done today.");
+      return;
+    }
+
     if (habit.streak < habit.target) {
       const updated = storedHabits.map((h) =>
-        h.id === habitId ? { ...h, streak: h.streak + 1 } : h
+        h.id === habitId
+          ? {
+              ...h,
+              streak: h.streak + 1,
+              history: [...(h.history || []), today],
+            }
+          : h
       );
 
       setStoredHabits(updated);
@@ -57,13 +73,11 @@ const HabitDetails = () => {
   };
 
   if (!habit) {
-    
     return (
       <>
-         <p className={style.noFound}>Habit not found</p>
+        <p className={style.noFound}>Habit not found</p>
       </>
- 
-    )
+    );
   }
 
   return (
@@ -81,7 +95,7 @@ const HabitDetails = () => {
           <p>
             <strong>Streak:</strong> {habit.streak} days
           </p>
-    <ProgressTrack progress={progress} radius={60} stroke={6} />
+          <ProgressTrack progress={progress} radius={60} stroke={6} />
 
           <div className={style.actions}>
             {habit.streak < habit.target && (
@@ -95,6 +109,18 @@ const HabitDetails = () => {
           </div>
         </p>
       </div>
+
+      <Calendar
+        tileContent={({ date }) => {
+          const isDone = (habit.history || []).includes(date.toDateString());
+          return isDone ? <span style={{ color: "green" }}>•</span> : null;
+        }}
+        tileClassName={({ date }) =>
+          (habit.history || []).includes(date.toDateString())
+            ? "highlight"
+            : null
+        }
+      />
     </section>
   );
 };
