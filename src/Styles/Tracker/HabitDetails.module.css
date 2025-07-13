@@ -1,0 +1,80 @@
+.details {
+    max-width: 500px;
+    margin: auto;
+    text-align: center;
+    padding: 2rem;
+    margin-top: -100px;
+}
+
+.backBtn {
+    display: block;
+    margin-bottom: 1rem;
+    color: var(--text-primary);
+    text-decoration: none;
+}
+
+.card {
+    background-color: var(--bg-card);
+    border-radius: 12px;
+    padding: 1.5rem;
+    box-shadow: var(--box-shadow);
+}
+
+.title {
+  font-size: 1.8rem;
+  font-weight: bold;
+  margin: 1rem 0;
+}
+
+.icon {
+    font-size: 2.5rem
+}
+
+.actions button {
+    margin: 0.5rem;
+    padding: 0.6rem 1.2rem;
+    background-color: var(--btn-primary-bg);
+    color: var(--text-primary);
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.actions button:hover {
+  background: var(--btn-primary-hover-bg);
+  transform: scale(1.02);
+}
+
+/* if using plain CSS */
+/* .funbutton {
+  background-color: #10b981;
+  color: white;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 8px;
+  font-weight: bold;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.fun-button:hover {
+  transform: scale(1.05);
+  background-color: #059669;
+} */
+
+
+@media (max-width: 600px) {
+    .details {
+        padding: 1rem;
+        margin-top: -50px;
+    }
+
+    .title {
+        font-size: 1.5rem;
+    }
+
+    .actions button {
+        padding: 0.4rem 0.8rem;
+    }
+}

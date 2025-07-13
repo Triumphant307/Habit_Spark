@@ -14,6 +14,7 @@
     "@emoji-mart/react": "^1.1.1",
     "aos": "^2.3.4",
     "bootstrap": "^5.3.6",
+    "canvas-confetti": "^1.9.3",
     "emoji-mart": "^5.6.0",
     "framer-motion": "^12.18.1",
     "lottie-react": "^2.4.1",
