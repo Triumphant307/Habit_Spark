@@ -2,16 +2,15 @@ import styles from "../Styles/Tracker/Tracker.module.css";
 import { motion, AnimatePresence } from "framer-motion";
 import TrackerCard from "../components/Tracker/TrackerCard";
 import { useHabits } from "../context/HabitContext";
-import useLocalStorage from "../Hooks/useLocalStorage";
 import Search from "../components/suggestion/Search";
 import { useState, useRef } from "react";
 
 const Tracker = () => {
   const { habits } = useHabits();
-  const [storedHabits, setStoredHabits] = useLocalStorage("trackedHabits", []);
+
   const [searchQuery, setSearchQuery] = useState("");
 
-  const filteredHabits = storedHabits.filter((habit) =>
+  const filteredHabits = habits.filter((habit) =>
     habit.title.toLowerCase().includes(searchQuery.toLowerCase())
   );
 

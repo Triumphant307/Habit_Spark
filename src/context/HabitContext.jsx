@@ -1,31 +1,34 @@
-import { createContext, useContext, useEffect, useState } from "react";
+import { createContext, useContext } from "react";
+import useLocalStorage from "../Hooks/useLocalStorage";
 
 const HabitContext = createContext();
 
 export const HabitProvider = ({ children }) => {
-  const [habits, setHabits] = useState(() => {
-    const stored = localStorage.getItem("trackedHabits");
-    return stored ? JSON.parse(stored) : [];
-  });
-
-  // Save to localStorage whenever habits change
-  useEffect(() => {
-    localStorage.setItem("trackedHabits", JSON.stringify(habits));
-  }, [habits]);
+  const [habits, setHabits] = useLocalStorage("trackedHabits", []);
 
   const addHabit = (habit) => {
-    const newHabit = { id: Date.now(), ...habit };
-    setHabits((prevHabits) => [...prevHabits, newHabit]);
+    const newHabit = {
+      ...habit,
+      id: Date.now(),
+      history: [],
+    };
+    setHabits((prev) => [...prev, newHabit]);
   };
 
   const removeHabit = (habitId) => {
-    setHabits((prevHabits) =>
-      prevHabits.filter((habit) => habit.id !== habitId)
+    setHabits((prev) => prev.filter((h) => h.id !== habitId));
+  };
+
+  const updateHabit = (habitId, updatedData) => {
+    setHabits((prev) =>
+      prev.map((h) => (h.id === habitId ? { ...h, ...updatedData } : h))
     );
   };
 
   return (
-    <HabitContext.Provider value={{ habits, addHabit, removeHabit }}>
+    <HabitContext.Provider
+      value={{ habits, setHabits, addHabit, removeHabit, updateHabit }}
+    >
       {children}
     </HabitContext.Provider>
   );
@@ -33,7 +36,7 @@ export const HabitProvider = ({ children }) => {
 
 export const useHabits = () => {
   const context = useContext(HabitContext);
-  if (context === undefined) {
+  if (!context) {
     throw new Error("useHabits must be used within a HabitProvider");
   }
   return context;

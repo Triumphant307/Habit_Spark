@@ -17,6 +17,7 @@
   --status-success: #10B981;  /* Completed habit */
   --status-warning: #F59E0B;  /* Warning/attention */
   --status-error: #EF4444;    /* Missed habit */
+  --status-error-hover: #dc2626; /* Hover state for error */
 
  /* box shadow */
   --box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
@@ -84,9 +85,27 @@ main{
   color: var(--text-primary);
 }
 
+.react-calendar__tile.highlight {
+  background-color: #d1fae5 !important; /* Tailwind green-100 */
+  border-radius: 8px;
+  font-weight: bold;
+  border: none;
+  border-radius: 10px;
+}
+
+.react-calendar {
+  background-color: var(--bg-card);
+  border-radius: 12px;
+}
+
 @media (max-width: 600px) {
   .Toastify__toast {
     min-width: 90vw;
     font-size: 1rem;
+  }
+
+  .react-calendar {
+    width: 100%;
+    font-size: 0.9rem;
   }
 }

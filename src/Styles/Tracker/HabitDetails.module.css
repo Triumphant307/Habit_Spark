@@ -1,23 +1,44 @@
 .details {
-    max-width: 500px;
-    margin: auto;
-    text-align: center;
-    padding: 2rem;
-    margin-top: -100px;
+  max-width: 500px;
+  margin: auto;
+  text-align: center;
+  padding: 2rem;
+  margin-top: -100px;
 }
 
 .backBtn {
-    display: block;
-    margin-bottom: 1rem;
-    color: var(--text-primary);
-    text-decoration: none;
+  display: block;
+  margin-bottom: 1rem;
+  color: var(--text-primary);
+  text-decoration: none;
 }
 
 .card {
-    background-color: var(--bg-card);
-    border-radius: 12px;
-    padding: 1.5rem;
-    box-shadow: var(--box-shadow);
+  /* background-color: var(--bg-card); */
+  border-radius: 12px;
+  padding: 1.5rem;
+  /* box-shadow: var(--box-shadow); */
+}
+
+.deleteActions {
+  display: flex;
+  justify-content: center;
+  margin-top: 1rem;
+}
+
+.deleteBtn {
+  background-color: var(--status-error);
+  color: #fff;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.deleteBtn:hover {
+  background-color: var(--status-error-hover);
+  transform: scale(1.02);
 }
 
 .title {
@@ -27,17 +48,17 @@
 }
 
 .icon {
-    font-size: 2.5rem
+  font-size: 2.5rem;
 }
 
 .actions button {
-    margin: 0.5rem;
-    padding: 0.6rem 1.2rem;
-    background-color: var(--btn-primary-bg);
-    color: var(--text-primary);
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
+  margin: 0.5rem;
+  padding: 0.6rem 1.2rem;
+  background-color: var(--btn-primary-bg);
+  color: var(--text-primary);
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
 }
 
 .actions button:hover {
@@ -45,28 +66,19 @@
   transform: scale(1.02);
 }
 
-/* if using plain CSS */
-/* .funbutton {
-  background-color: #10b981;
-  color: white;
-  border: none;
-  padding: 10px 16px;
-  border-radius: 8px;
-  font-weight: bold;
-  font-size: 1rem;
-  cursor: pointer;
-  transition: transform 0.2s ease;
+.history {
+  margin-top: 1rem;
+  padding: 1rem;
+  /* background-color: var(--bg-card); */
+  border-radius: 10px;
+  /* box-shadow: var(--box-shadow); */
 }
 
-.fun-button:hover {
-  transform: scale(1.05);
-  background-color: #059669;
-} */
-
-.react-calendar__tile.highlight {
-  background-color: #d1fae5 !important; /* Tailwind green-100 */
-  border-radius: 8px;
+.historyTitle {
+  font-size: 1.7rem;
   font-weight: bold;
+  margin-bottom: 0.5rem;
+  color: var(--text-primary);
 }
 
 .highlight {
@@ -75,18 +87,17 @@
   border-radius: 8px;
 }
 
-
 @media (max-width: 600px) {
-    .details {
-        padding: 1rem;
-        margin-top: -50px;
-    }
+  .details {
+    padding: 1rem;
+    margin-top: -50px;
+  }
 
-    .title {
-        font-size: 1.5rem;
-    }
+  .title {
+    font-size: 1.5rem;
+  }
 
-    .actions button {
-        padding: 0.4rem 0.8rem;
-    }
+  .actions button {
+    padding: 0.4rem 0.8rem;
+  }
 }
