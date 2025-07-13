@@ -85,11 +85,11 @@ const HabitDetails = () => {
 
           <div className={style.actions}>
             {habit.streak < habit.target && (
-              <button onClick={handleDone}>
+              <button onClick={handleDone} title="Done">
                 <FaCheck /> Done
               </button>
             )}
-            <button onClick={handleReset}>
+            <button onClick={handleReset} title="Reset Streak">
               <FaUndoAlt /> Reset
             </button>
           </div>

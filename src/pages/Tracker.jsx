@@ -1,4 +1,4 @@
-import styles from "../styles/Tracker/Tracker.module.css";
+import styles from "../Styles/Tracker/Tracker.module.css";
 import { motion, AnimatePresence } from "framer-motion";
 import TrackerCard from "../components/Tracker/TrackerCard";
 import { useHabits } from "../context/HabitContext";
