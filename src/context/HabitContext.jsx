@@ -7,7 +7,7 @@ export const HabitProvider = ({ children }) => {
   const [habits, setHabits] = useLocalStorage("trackedHabits", []);
 
   const addHabit = (habit) => {
-    const id = Date.now(); // unique id
+    const id = habit.id ?? Date.now(); // unique id
     setHabits((prev) => [...prev, { ...habit, id }]);
   };
 

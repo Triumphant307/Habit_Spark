@@ -9,7 +9,7 @@ import useLocalStorage from "../../Hooks/useLocalStorage";
 import { useState, useRef } from "react";
 
 const SuggestionCard = () => {
-  const { addHabit, removeHabit } = useHabits();
+  const { addHabit, deleteHabit } = useHabits();
 
   const [filter, setFilter] = useLocalStorage("habitFilter", "All");
   const [favorites, setFavorites] = useLocalStorage("habitFavorites", []);
@@ -119,11 +119,9 @@ const SuggestionCard = () => {
               <AnimatedTipCard
                 key={`${filter}-${tip.id || tip.title}`}
                 tip={tip}
-                addHabit={addHabit}
                 favorites={favorites}
                 setFavorites={setFavorites}
                 viewMode={viewMode}
-                removeHabit={removeHabit}
               />
             ))}
           </AnimatePresence>

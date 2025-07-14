@@ -1,28 +1,33 @@
 import { useInView } from "react-intersection-observer";
+import { useEffect } from "react";
 import { motion } from "framer-motion";
 import { FaHeart } from "react-icons/fa";
-import useLocalStorage from "../../Hooks/useLocalStorage";
+import { useHabits } from "../../context/HabitContext";
 import styles from "../../Styles/Suggestion/suggestionCard.module.css";
 import { toast } from "react-toastify";
 import { Link } from "react-router-dom";
 
-const AnimatedTipCard = ({
-  tip,
-  addHabit,        // from HabitContext
-  favorites,
-  setFavorites,
-  viewMode,
-}) => {
+const AnimatedTipCard = ({ tip, favorites, setFavorites, viewMode }) => {
   const { ref, inView } = useInView({ triggerOnce: true });
 
-  const [trackedHabits, setTrackedHabits] = useLocalStorage("trackedHabits", []);
+  const { habits, addHabit, deleteHabit } = useHabits();
 
-  const alreadyAdded = trackedHabits.some(h => h.id === tip.id);
+  const alreadyAdded = habits.some((h) => h.id === tip.id);
+
+  useEffect(() => {
+    const found = habits.some((h) => h.id === tip.id);
+
+    console.log("TIP", found);
+    console.log("habits", habits);
+  }, [habits, tip.id]);
 
   const handleAdd = () => {
     const newHabit = { ...tip, target: 30, streak: 0 };
-    setTrackedHabits([...trackedHabits, newHabit]); // Save to localStorage
-    addHabit(newHabit); // Optional: also update context state
+
+    if (!habits.some((h) => h.id === newHabit.id)) {
+      addHabit(newHabit);
+    }
+
     toast.success(
       <span>
         {`${tip.title.trim()} ${tip.icon} added! `}
@@ -52,19 +57,20 @@ const AnimatedTipCard = ({
   };
 
   const handleUndo = (id) => {
-    setTrackedHabits(prev => prev.filter(habit => habit.id !== id));
+    deleteHabit(id);
+
     toast.info(`${tip.title.trim()} ${tip.icon} removed!`);
   };
 
   const toggleFavorite = () => {
     const isFavorite = favorites.includes(tip.id);
-    setFavorites(prev =>
-      isFavorite
-        ? prev.filter(id => id !== tip.id)
-        : [...prev, tip.id]
+    setFavorites((prev) =>
+      isFavorite ? prev.filter((id) => id !== tip.id) : [...prev, tip.id]
     );
     toast[isFavorite ? "info" : "success"](
-      `${tip.title} ${tip.icon} ${isFavorite ? "removed from" : "added to"} Favorites!`
+      `${tip.title} ${tip.icon} ${
+        isFavorite ? "removed from" : "added to"
+      } Favorites!`
     );
   };
 
@@ -73,7 +79,9 @@ const AnimatedTipCard = ({
       ref={ref}
       layout
       key={tip.id}
-      className={`${styles.card} ${viewMode === "list" ? styles.listView : styles.gridView}`}
+      className={`${styles.card} ${
+        viewMode === "list" ? styles.listView : styles.gridView
+      }`}
       style={{ textAlign: "center" }}
       initial={{ opacity: 0, scale: 0.9 }}
       animate={inView ? { opacity: 1, scale: 1 } : {}}
@@ -94,7 +102,6 @@ const AnimatedTipCard = ({
         className={styles.btn}
         onClick={handleAdd}
         disabled={alreadyAdded}
-        style={{ display: "block", margin: "0 auto" }}
         title={alreadyAdded ? "Already added" : "Add to habits"}
       >
         {alreadyAdded ? "Added ✅" : "Add Habit"}

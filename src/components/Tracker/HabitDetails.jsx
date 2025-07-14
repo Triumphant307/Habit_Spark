@@ -17,16 +17,18 @@ const HabitDetails = () => {
 
   const habit = habits.find((habit) => habit.id === Number(id));
 
-  useEffect(() => {
-    if (habit.streak >= habit.target) {
-      confetti({
-        particleCount: 100,
-        spread: 70,
-        origin: { y: 0.6 },
-      });
-      toast.success("🎉 Congratulations! You've reached your target!");
-    }
-  }, [habit.streak, habit.target]);
+useEffect(() => {
+  if (!habit) return;
+
+  if (habit.streak >= habit.target) {
+    confetti({
+      particleCount: 100,
+      spread: 70,
+      origin: { y: 0.6 },
+    });
+    toast.success("🎉 Congratulations! You've reached your target!");
+  }
+}, [habit]);
 
   if (!habit) {
     return <p className={style.noFound}>Habit not found</p>;
