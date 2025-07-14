@@ -98,7 +98,7 @@ header {
   text-decoration-thickness: 2px;
 }
 
-@media (max-width: 640px) {
+@media (max-width: 700px) {
   .header__navlist {
     flex-direction: column;
     gap: 1rem;
