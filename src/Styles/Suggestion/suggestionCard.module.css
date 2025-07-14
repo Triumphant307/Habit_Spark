@@ -138,6 +138,10 @@
   font-size: 2.5rem;
 }
 
+.listView .btn {
+  margin-left: auto;
+}
+
 .gridView {
   width: 250px;
 }
