@@ -5,7 +5,6 @@ import "react-calendar/dist/Calendar.css";
 import { FaCheck, FaUndoAlt, FaTrash } from "react-icons/fa";
 import style from "../../Styles/Tracker/HabitDetails.module.css";
 import { useParams, Link, useNavigate } from "react-router-dom";
-import useLocalStorage from "../../Hooks/useLocalStorage";
 import ProgressTrack from "../ProgressTracker";
 import { useHabits } from "../../context/HabitContext";
 import { toast } from "react-toastify";
@@ -13,20 +12,10 @@ import confetti from "canvas-confetti";
 
 const HabitDetails = () => {
   const { id } = useParams();
-  const { habits, removeHabit } = useHabits();
+  const { habits, updateHabit, deleteHabit, resetHabit } = useHabits();
   const navigate = useNavigate();
 
-  const [storedHabits, setStoredHabits] = useLocalStorage("trackedHabits", []);
-
-  const habit = storedHabits.find((habit) => habit.id === Number(id));
-
-  const habitId = Number(id);
-
-  if (!habit) {
-    return <p className={style.noFound}>Habit not found</p>;
-  }
-
-  const progress = Math.round((habit.streak / habit.target) * 100);
+  const habit = habits.find((habit) => habit.id === Number(id));
 
   useEffect(() => {
     if (habit.streak >= habit.target) {
@@ -39,39 +28,32 @@ const HabitDetails = () => {
     }
   }, [habit.streak, habit.target]);
 
+  if (!habit) {
+    return <p className={style.noFound}>Habit not found</p>;
+  }
+
+  const progress = Math.round((habit.streak / habit.target) * 100);
+
   const handleDone = () => {
     const today = new Date().toDateString();
-
     if (habit.history?.includes(today)) {
-      toast.info("You've already marked this habit as done today.");
+      toast.info("Already done for today.");
       return;
     }
 
     if (habit.streak < habit.target) {
-      const updated = storedHabits.map((h) =>
-        h.id === habitId
-          ? {
-              ...h,
-              streak: h.streak + 1,
-              history: [...(h.history || []), today],
-            }
-          : h
-      );
-
-      setStoredHabits(updated);
-
+      updateHabit(habit.id, {
+        streak: habit.streak + 1,
+        history: [...(habit.history || []), today],
+      });
       toast.success("Streak increased 🔥");
     } else {
-      toast.info("🎯 You've already reached your target!");
+      toast.info("Target reached!");
     }
   };
 
   const handleReset = () => {
-    const updated = storedHabits.map((h) =>
-      h.id === habitId ? { ...h, streak: 0, history: [] } : h
-    );
-
-    setStoredHabits(updated);
+    resetHabit(habit.id);
 
     toast.info("Streak reset to 0. Keep going! 💪");
   };
@@ -82,9 +64,7 @@ const HabitDetails = () => {
     );
     if (!confirmed) return;
 
-    const updated = storedHabits.filter((h) => h.id !== habitId);
-    setStoredHabits(updated);
-    removeHabit(habitId);
+    deleteHabit(habit.id);
     toast.success("Habit deleted successfully! 🗑️");
     navigate("/tracker");
   };

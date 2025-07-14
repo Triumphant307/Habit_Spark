@@ -7,27 +7,33 @@ export const HabitProvider = ({ children }) => {
   const [habits, setHabits] = useLocalStorage("trackedHabits", []);
 
   const addHabit = (habit) => {
-    const newHabit = {
-      ...habit,
-      id: Date.now(),
-      history: [],
-    };
-    setHabits((prev) => [...prev, newHabit]);
+    const id = Date.now(); // unique id
+    setHabits((prev) => [...prev, { ...habit, id }]);
   };
 
-  const removeHabit = (habitId) => {
-    setHabits((prev) => prev.filter((h) => h.id !== habitId));
-  };
-
-  const updateHabit = (habitId, updatedData) => {
+  const updateHabit = (id, updatedFields) => {
     setHabits((prev) =>
-      prev.map((h) => (h.id === habitId ? { ...h, ...updatedData } : h))
+      prev.map((habit) =>
+        habit.id === id ? { ...habit, ...updatedFields } : habit
+      )
+    );
+  };
+
+  const deleteHabit = (id) => {
+    setHabits((prev) => prev.filter((habit) => habit.id !== id));
+  };
+
+  const resetHabit = (id) => {
+    setHabits((prev) =>
+      prev.map((habit) =>
+        habit.id === id ? { ...habit, streak: 0, history: [] } : habit
+      )
     );
   };
 
   return (
     <HabitContext.Provider
-      value={{ habits, setHabits, addHabit, removeHabit, updateHabit }}
+      value={{ habits, addHabit, updateHabit, deleteHabit, resetHabit }}
     >
       {children}
     </HabitContext.Provider>
@@ -36,8 +42,7 @@ export const HabitProvider = ({ children }) => {
 
 export const useHabits = () => {
   const context = useContext(HabitContext);
-  if (!context) {
+  if (!context)
     throw new Error("useHabits must be used within a HabitProvider");
-  }
   return context;
 };
