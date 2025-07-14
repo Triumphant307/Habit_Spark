@@ -1,4 +1,3 @@
-import { useHabits } from "../../context/HabitContext";
 import { motion, AnimatePresence } from "framer-motion";
 import { getTipsByCategory } from "../../utils/getTipsByCatergory";
 import Search from "./Search.jsx";
@@ -9,7 +8,7 @@ import useLocalStorage from "../../Hooks/useLocalStorage";
 import { useState, useRef } from "react";
 
 const SuggestionCard = () => {
-  const { addHabit, deleteHabit } = useHabits();
+
 
   const [filter, setFilter] = useLocalStorage("habitFilter", "All");
   const [favorites, setFavorites] = useLocalStorage("habitFavorites", []);
