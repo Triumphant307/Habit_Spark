@@ -6,7 +6,7 @@ const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
 
-  // Effect to handle scroll event and change header style
+  // Effect to handle scroll event and change header styl
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 10);
