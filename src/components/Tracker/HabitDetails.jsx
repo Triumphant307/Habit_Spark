@@ -1,6 +1,5 @@
 import React from "react";
 import { useEffect } from "react";
-import Calendar from "react-calendar";
 import "react-calendar/dist/Calendar.css";
 import style from "../../Styles/Tracker/HabitDetails.module.css";
 import { useParams, Link, useNavigate } from "react-router-dom";
