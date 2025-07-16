@@ -1,6 +1,5 @@
-import React from "react";
 import { Link } from "react-router-dom";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import ProgressTrack from "../ProgressTracker";
 import style from "../../Styles/Tracker/TrackerCard.module.css";
 const TrackerCard = ({ habits }) => {
