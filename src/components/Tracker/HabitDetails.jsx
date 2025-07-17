@@ -1,10 +1,11 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import "react-calendar/dist/Calendar.css";
 import style from "../../Styles/Tracker/HabitDetails.module.css";
 import { useParams, Link, useNavigate } from "react-router-dom";
 import HabitHistory from "./HabitHistory";
 import HabitAction from "./HabitAction";
 import HabitStat from "./HabitStat";
+import DeleteDialog from "./DeleteDialog";
 import { useHabits } from "../../context/HabitContext";
 import { toast } from "react-toastify";
 import confetti from "canvas-confetti";
@@ -12,6 +13,7 @@ import confetti from "canvas-confetti";
 const HabitDetails = () => {
   const { id } = useParams();
   const { habits, updateHabit, deleteHabit, resetHabit } = useHabits();
+   const [isDialogOpen, setIsDialogOpen] = useState(false);
   const navigate = useNavigate();
 
   const habit = habits.find((habit) => habit.id === Number(id));
@@ -59,11 +61,17 @@ const HabitDetails = () => {
     toast.info("Streak reset to 0. Keep going! 💪");
   };
 
+  const handleDeleteClick = () => {
+  setIsDialogOpen(true);
+};
+
   const handleDelete = () => {
-    const confirmed = window.confirm(
-      "Are you sure you want to delete this habit?"
-    );
-    if (!confirmed) return;
+    // const confirmed = window.confirm(
+    //   "Are you sure you want to delete this habit?"
+    // );
+    // if (!confirmed) return;
+
+    setIsDialogOpen(false)
 
     deleteHabit(habit.id);
     toast.success("Habit deleted successfully! 🗑️");
@@ -71,6 +79,7 @@ const HabitDetails = () => {
   };
 
   return (
+    <>
     <section className={style.details}>
       <Link to="/tracker" className={style.backBtn} title="Back to Tracker">
         ← Back to Tracker
@@ -85,12 +94,20 @@ const HabitDetails = () => {
           handleDone={handleDone}
           handleReset={handleReset}
           handleDelete={handleDelete}
+          handleDeleteClick={handleDeleteClick}
           style={style}
         />
       </div>
 
       <HabitHistory habit={habit} style={style} />
+             <DeleteDialog
+               isOpen={isDialogOpen}
+        onClose={() => setIsDialogOpen(false)}
+        onConfirm={handleDelete}
+        />
     </section>
+   
+    </>
   );
 };
 

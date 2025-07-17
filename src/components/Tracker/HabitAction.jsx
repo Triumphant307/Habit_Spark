@@ -4,6 +4,7 @@ const HabitAction = ({
   handleDone,
   handleReset,
   handleDelete,
+handleDeleteClick,
   style,
 }) => {
   return (
@@ -19,7 +20,7 @@ const HabitAction = ({
         </button>
       </div>
       <div className={style.deleteActions}>
-        <button className={style.deleteBtn} onClick={handleDelete}>
+        <button className={style.deleteBtn} onClick={handleDeleteClick}>
           <FaTrash /> Delete
         </button>
       </div>
