@@ -1,4 +1,3 @@
-import React from "react";
 import { FaCheck, FaUndoAlt, FaTrash } from "react-icons/fa";
 const HabitAction = ({
   habit,

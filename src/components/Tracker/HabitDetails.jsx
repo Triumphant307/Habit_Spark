@@ -1,4 +1,3 @@
-import React from "react";
 import { useEffect } from "react";
 import "react-calendar/dist/Calendar.css";
 import style from "../../Styles/Tracker/HabitDetails.module.css";

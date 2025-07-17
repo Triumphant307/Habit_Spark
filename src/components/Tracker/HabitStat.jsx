@@ -1,4 +1,3 @@
-import React from "react";
 import ProgressTrack from "../ProgressTracker";
 const HabitStat = ({ habit, progress, style }) => {
   return (
