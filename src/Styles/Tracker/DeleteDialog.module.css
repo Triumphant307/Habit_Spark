@@ -6,15 +6,12 @@
   width: 90%;
   background-color: var(--bg-card);
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
-
 }
 
 .dialog::backdrop {
-      background: rgba(0, 0, 0, 0.5);
+  background: rgba(0, 0, 0, 0.5);
   backdrop-filter: blur(2px);
 }
-
-
 
 .dialogActions {
   display: flex;
@@ -24,13 +21,11 @@
 }
 
 .cancelBtn {
-    background-color: var(--btn-primary-bg);
-    
-
+  background-color: var(--btn-primary-bg);
 }
 
 .cancelBtn:hover {
-    background-color: var(--btn-primary-hover-bg);
+  background-color: var(--btn-primary-hover-bg);
 }
 
 .deleteBtn {
@@ -38,24 +33,14 @@
 }
 
 .deleteBtn:hover {
-    background-color: #c0392b;
+  background-color: #c0392b;
 }
 
-.dialogActions  button {
-    padding: 10px 13px;
-        border-radius: 10px;
-        border: none;
-        cursor: pointer;
-    color: white;
-        
-
-    transition: background-color 0.3s ease;
-}
-
-
-
-.dialogActions  button:focus {
-    /* outline: orangered; */
-    /* box-shadow: 0 0 0 6px rgba(255, 255, 255, 0.5); */
-    /* box-shadow: var(--box-shadow); */
+.dialogActions button {
+  padding: 10px 13px;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  color: white;
+  transition: background-color 0.3s ease;
 }

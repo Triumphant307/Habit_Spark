@@ -14,10 +14,8 @@
 }
 
 .card {
-  /* background-color: var(--bg-card); */
   border-radius: 12px;
   padding: 1.5rem;
-  /* box-shadow: var(--box-shadow); */
 }
 
 .deleteActions {
@@ -69,9 +67,7 @@
 .history {
   margin-top: 1rem;
   padding: 1rem;
-  /* background-color: var(--bg-card); */
   border-radius: 10px;
-  /* box-shadow: var(--box-shadow); */
 }
 
 .historyTitle {
@@ -82,7 +78,7 @@
 }
 
 .highlight {
-  background-color: #d1fae5; /* soft green */
+  background-color: #d1fae5;
   font-weight: bold;
   border-radius: 8px;
 }
