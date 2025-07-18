@@ -75,14 +75,4 @@ form {
     transform: translateX(-50%);
     top: 105%;
   }
-
-  /* input[type="text"],
-    input[type="number"] {
-        width: 100%;
-        margin-bottom: 0;
-    }
-
-        .btn {
-        width: 100%;
-    } */
 }

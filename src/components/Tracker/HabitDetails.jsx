@@ -6,6 +6,7 @@ import HabitHistory from "./HabitHistory";
 import HabitAction from "./HabitAction";
 import HabitStat from "./HabitStat";
 import DeleteDialog from "./DeleteDialog";
+import EditDialog from "./EditDialog";
 import { useHabits } from "../../context/HabitContext";
 import { toast } from "react-toastify";
 import confetti from "canvas-confetti";
@@ -13,7 +14,8 @@ import confetti from "canvas-confetti";
 const HabitDetails = () => {
   const { id } = useParams();
   const { habits, updateHabit, deleteHabit, resetHabit } = useHabits();
-   const [isDialogOpen, setIsDialogOpen] = useState(false);
+  const [isDialogOpen, setIsDialogOpen] = useState(false);
+  const [isEditOpen, setIsEditOpen] = useState(false);
   const navigate = useNavigate();
 
   const habit = habits.find((habit) => habit.id === Number(id));
@@ -62,16 +64,11 @@ const HabitDetails = () => {
   };
 
   const handleDeleteClick = () => {
-  setIsDialogOpen(true);
-};
+    setIsDialogOpen(true);
+  };
 
   const handleDelete = () => {
-    // const confirmed = window.confirm(
-    //   "Are you sure you want to delete this habit?"
-    // );
-    // if (!confirmed) return;
-
-    setIsDialogOpen(false)
+    setIsDialogOpen(false);
 
     deleteHabit(habit.id);
     toast.success("Habit deleted successfully! 🗑️");
@@ -80,33 +77,43 @@ const HabitDetails = () => {
 
   return (
     <>
-    <section className={style.details}>
-      <Link to="/tracker" className={style.backBtn} title="Back to Tracker">
-        ← Back to Tracker
-      </Link>
-      <div className={style.card}>
-        <span className={style.icon}>{habit.icon}</span>
-        <h2 className={style.title}>{habit.title}</h2>
-        <HabitStat habit={habit} progress={progress} style={style} />
+      <section className={style.details}>
+        <Link to="/tracker" className={style.backBtn} title="Back to Tracker">
+          ← Back to Tracker
+        </Link>
+        <div className={style.card}>
+          <span className={style.icon}>{habit.icon}</span>
+          <h2 className={style.title}>{habit.title}</h2>
+          <HabitStat habit={habit} progress={progress} style={style} />
 
-        <HabitAction
+          <HabitAction
+            habit={habit}
+            handleDone={handleDone}
+            handleReset={handleReset}
+            handleDelete={handleDelete}
+            handleDeleteClick={handleDeleteClick}
+            handleEditClick={() => setIsEditOpen(true)}
+            style={style}
+          />
+        </div>
+
+        <HabitHistory habit={habit} style={style} />
+        <DeleteDialog
+          isOpen={isDialogOpen}
+          onClose={() => setIsDialogOpen(false)}
+          onConfirm={handleDelete}
+        />
+
+        <EditDialog
           habit={habit}
-          handleDone={handleDone}
-          handleReset={handleReset}
-          handleDelete={handleDelete}
-          handleDeleteClick={handleDeleteClick}
-          style={style}
+          isOpen={isEditOpen}
+          onClose={() => setIsEditOpen(false)}
+          onSave={(updatedData) => {
+            updateHabit(habit.id, updatedData);
+            toast.success("Habit updated successfully");
+          }}
         />
-      </div>
-
-      <HabitHistory habit={habit} style={style} />
-             <DeleteDialog
-               isOpen={isDialogOpen}
-        onClose={() => setIsDialogOpen(false)}
-        onConfirm={handleDelete}
-        />
-    </section>
-   
+      </section>
     </>
   );
 };

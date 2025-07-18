@@ -1,10 +1,10 @@
-import { FaCheck, FaUndoAlt, FaTrash } from "react-icons/fa";
+import { FaCheck, FaUndoAlt, FaTrash, FaEdit } from "react-icons/fa";
 const HabitAction = ({
   habit,
   handleDone,
   handleReset,
-  handleDelete,
-handleDeleteClick,
+  handleDeleteClick,
+  handleEditClick,
   style,
 }) => {
   return (
@@ -17,6 +17,14 @@ handleDeleteClick,
         )}
         <button onClick={handleReset} title="Reset Streak">
           <FaUndoAlt /> Reset
+        </button>
+
+        <button
+          className={style.editBtn}
+          onClick={handleEditClick}
+          title="Edit Habit"
+        >
+          <FaEdit /> Edit
         </button>
       </div>
       <div className={style.deleteActions}>
