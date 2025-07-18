@@ -68,16 +68,6 @@ const EditDialog = ({ isOpen, habit, onClose, onSave }) => {
         <form onSubmit={handleSubmit}>
           <h2>Edit Habit</h2>
 
-          {/* <label htmlFor="">
-            Title:
-            <input
-              value={title}
-              onChange={(e) => setTitle(e.target.value)}
-              required
-              className={styles.inputs}
-            />
-          </label> */}
-
           <div className={styles.floatingInput}>
             <input
               type="text"
@@ -105,7 +95,6 @@ const EditDialog = ({ isOpen, habit, onClose, onSave }) => {
           </div>
 
           <label htmlFor="">
-            Icon:
             <div className={styles.pickerContainer}>
               <button
                 className={styles.btn}

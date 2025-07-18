@@ -56,7 +56,7 @@ const SuggestionForm = () => {
       icon,
       target,
       streak: 0,
-      history: []
+      history: [],
     });
 
     toast.dismiss();
@@ -82,13 +82,18 @@ const SuggestionForm = () => {
 
   return (
     <form onSubmit={handleAddHabit}>
-      <input
-        className={styles.TitleInput}
-        type="text"
-        value={title}
-        onChange={(e) => setTitle(e.target.value)}
-        placeholder="Habit Title"
-      />
+      <div className={styles.floatingInput}>
+        <input
+          id="habit-title"
+          className={styles.TitleInput}
+          type="text"
+          value={title}
+          onChange={(e) => setTitle(e.target.value)}
+          placeholder=" "
+        />
+        <label htmlFor="habit-title">Habit Title</label>
+      </div>
+
       <div className={styles.pickerContainer}>
         <button
           className={styles.btn}
@@ -105,13 +110,18 @@ const SuggestionForm = () => {
         )}
       </div>
 
-      <input
-        className={styles.TargetInput}
-        type="number"
-        value={target}
-        onChange={(e) => setTarget(Number(e.target.value))}
-        placeholder="Habit Target"
-      />
+      <div className={styles.floatingInput}>
+        <input
+          className={styles.TargetInput}
+          type="number"
+          value={target}
+          onChange={(e) => setTarget(Number(e.target.value))}
+          placeholder=" "
+        />
+
+        <label htmlFor="">Habit Target</label>
+      </div>
+
       <button
         className={styles.btn}
         type="submit"

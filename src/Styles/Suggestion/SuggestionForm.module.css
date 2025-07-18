@@ -7,16 +7,45 @@ form {
   width: 100%;
 }
 
-.TitleInput,
-.TargetInput {
-  padding: 0.5rem 1rem;
-  border: 1px solid #ccc;
-  border-radius: 4px;
+.floatingInput {
+  position: relative;
+  width: 50%;
+  margin-top: 1rem;
+}
+
+.floatingInput input {
+  width: 100%;
+  padding: 1rem 0.75rem 0.5rem 0.75rem;
   font-size: 1rem;
-  width: 250px;
-  margin-bottom: 10px;
-  box-shadow: var(--box-shadow);
-  transition: box-shadow 0.3s ease;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  color: var(--text-primary);
+  background: transparent;
+  outline: none;
+}
+
+.floatingInput input:focus {
+  border-color: var(--btn-primary-bg);
+}
+
+.floatingInput label {
+  position: absolute;
+  top: 50%;
+  left: 0.75rem;
+  transform: translateY(-50%);
+  color: #999;
+  background-color: var(--bg-page);
+  padding: 0 0.25rem;
+  transition: all 0.2s ease-in-out;
+  pointer-events: none;
+}
+
+.floatingInput input:focus + label,
+.floatingInput input:not(:placeholder-shown) + label {
+  top: 0;
+  left: 0.5rem;
+  font-size: 0.75rem;
+  color: var(--btn-primary-bg);
 }
 
 .btn {
@@ -74,5 +103,9 @@ form {
     left: 50%;
     transform: translateX(-50%);
     top: 105%;
+  }
+
+  .floatingInput {
+    width: 100%;
   }
 }
