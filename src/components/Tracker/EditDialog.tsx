@@ -1,16 +1,29 @@
-import { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import styles from "../../Styles/Tracker/EditDialog.module.css";
 import data from "@emoji-mart/data";
 import Picker from "@emoji-mart/react";
-const EditDialog = ({ isOpen, habit, onClose, onSave }) => {
-  const dialogRef = useRef(null);
+
+type Habit = {
+  title: string;
+  target: number;
+  icon: string;
+};
+
+type EditDialogProps = {
+  isOpen: boolean;
+  habit: Habit;
+  onClose: () => void;
+  onSave: (updateHabit: Habit) => void;
+};
+const EditDialog = ({ isOpen, habit, onClose, onSave }: EditDialogProps) => {
+  const dialogRef = useRef<HTMLDialogElement>(null);
   const [title, setTitle] = useState("");
   const [target, setTarget] = useState(1);
   const [icon, setIcon] = useState("");
   const [error, setError] = useState("");
   const [showPicker, setShowPicker] = useState(false);
-  const pickerRef = useRef(null);
+  const pickerRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
     if (isOpen && dialogRef?.current) {
@@ -30,8 +43,11 @@ const EditDialog = ({ isOpen, habit, onClose, onSave }) => {
   }, [habit]);
 
   useEffect(() => {
-    const handleClickOutside = (event) => {
-      if (pickerRef.current && !pickerRef.current.contains(event.target)) {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (
+        pickerRef.current &&
+        !pickerRef.current.contains(event.target as Node)
+      ) {
         setShowPicker(false);
       }
     };
@@ -42,7 +58,7 @@ const EditDialog = ({ isOpen, habit, onClose, onSave }) => {
     };
   }, [showPicker]);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (title.trim() === "" || icon.trim() === "") {
       setError("Please enter a title and select an icon.");
@@ -66,9 +82,13 @@ const EditDialog = ({ isOpen, habit, onClose, onSave }) => {
     onClose();
   };
 
-  const handleEmojiSelect = (emoji) => {
+  const handleEmojiSelect = (emoji: { native: string }) => {
     setIcon(emoji.native); // Set the selected emoji as the icon
     setShowPicker(false); // Optionally close the picker
+  };
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setTarget(Number(e.target.value));
   };
 
   return (
@@ -107,7 +127,7 @@ const EditDialog = ({ isOpen, habit, onClose, onSave }) => {
                     id="target"
                     type="number"
                     value={target}
-                    onChange={(e) => setTarget(e.target.value)}
+                    onChange={handleChange}
                     min={1}
                     required
                     placeholder=" "
