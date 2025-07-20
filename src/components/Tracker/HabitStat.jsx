@@ -1,4 +1,5 @@
 import ProgressTrack from "../ProgressTracker";
+
 const HabitStat = ({ habit, progress, style }) => {
   return (
     <div className={style.stats}>

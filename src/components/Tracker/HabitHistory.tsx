@@ -1,5 +1,14 @@
 import Calendar from "react-calendar";
-const HabitHistory = ({ habit, style }) => {
+
+type Habit = {
+  history : string[]
+}
+
+type HabitHistoryProps = {
+  habit: Habit,
+  style: {[key: string] :string}
+}
+const HabitHistory = ({ habit, style }: HabitHistoryProps) => {
   return (
     <div className={style.history}>
       <h3 className={style.historyTitle}>📆 Habit History</h3>
