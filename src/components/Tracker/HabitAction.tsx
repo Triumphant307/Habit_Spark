@@ -1,4 +1,18 @@
 import { FaCheck, FaUndoAlt, FaTrash, FaEdit } from "react-icons/fa";
+
+type Habit = {
+  streak: number
+  target: number
+}
+
+type HabitActionProps = {
+  habit: Habit;
+  handleDone: () => void;
+  handleReset: () => void;
+  handleDeleteClick: () => void;
+  handleEditClick: () => void;
+  style: { [key: string]: string };
+};
 const HabitAction = ({
   habit,
   handleDone,
@@ -6,7 +20,7 @@ const HabitAction = ({
   handleDeleteClick,
   handleEditClick,
   style,
-}) => {
+}: HabitActionProps) => {
   return (
     <>
       <div className={style.actions}>
