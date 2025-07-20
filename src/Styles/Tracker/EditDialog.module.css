@@ -111,6 +111,8 @@ form {
   animation: fadeIn 0.15s ease-in-out;
 }
 
+
+
 .inputs {
   padding: 0.5rem 1rem;
   border: 1px solid #ccc;
@@ -120,6 +122,12 @@ form {
   margin-bottom: 10px;
   box-shadow: var(--box-shadow);
   transition: box-shadow 0.3s ease;
+}
+
+.error {
+  color: var(--status-error);
+  font-size: 0.875rem;
+  margin-top: 10px;
 }
 
 .pickerContainer {

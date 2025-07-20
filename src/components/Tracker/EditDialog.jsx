@@ -1,5 +1,5 @@
-import React from "react";
 import { useState, useEffect, useRef } from "react";
+import { AnimatePresence, motion } from "framer-motion";
 import styles from "../../Styles/Tracker/EditDialog.module.css";
 import data from "@emoji-mart/data";
 import Picker from "@emoji-mart/react";
@@ -8,6 +8,7 @@ const EditDialog = ({ isOpen, habit, onClose, onSave }) => {
   const [title, setTitle] = useState("");
   const [target, setTarget] = useState(1);
   const [icon, setIcon] = useState("");
+  const [error, setError] = useState("");
   const [showPicker, setShowPicker] = useState(false);
   const pickerRef = useRef(null);
 
@@ -43,6 +44,19 @@ const EditDialog = ({ isOpen, habit, onClose, onSave }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    if (title.trim() === "" || icon.trim() === "") {
+      setError("Please enter a title and select an icon.");
+      return;
+    } else if (title.length < 3) {
+      setError("Title must be at least 3 characters long.");
+      return;
+    } else if (icon.length < 1) {
+      setError("Please select an icon.");
+      return;
+    } else if (target < 1) {
+      setError("Target must be at least 1.");
+      return;
+    }
     onSave({
       ...habit,
       title,
@@ -65,62 +79,75 @@ const EditDialog = ({ isOpen, habit, onClose, onSave }) => {
         onCancel={onClose}
         ref={dialogRef}
       >
-        <form onSubmit={handleSubmit}>
-          <h2>Edit Habit</h2>
+        <AnimatePresence>
+          {isOpen && (
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9, y: -20 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.9, y: -20 }}
+              transition={{ duration: 0.3, ease: "easeInOut" }}
+            >
+              <form onSubmit={handleSubmit}>
+                <h2>Edit Habit</h2>
 
-          <div className={styles.floatingInput}>
-            <input
-              type="text"
-              id="title"
-              value={title}
-              onChange={(e) => setTitle(e.target.value)}
-              required
-              placeholder=" "
-            />
-            <label htmlFor="title">Habit Title</label>
-          </div>
-
-          <div className={styles.floatingInput}>
-            <input
-              id="target"
-              type="number"
-              value={target}
-              onChange={(e) => setTarget(e.target.value)}
-              min={1}
-              required
-              placeholder=" "
-              className={styles.inputs}
-            />
-            <label htmlFor="target">Habit Target:</label>
-          </div>
-
-          <label htmlFor="">
-            <div className={styles.pickerContainer}>
-              <button
-                className={styles.btn}
-                type="button"
-                onClick={() => setShowPicker(!showPicker)}
-                title={icon ? `Selected: ${icon}` : "Show Emoji"}
-              >
-                {/* {icon ? `Selected: ${icon}` : "Show Emoji"} */}
-                {icon || "😀 Choose Emoji"}
-              </button>
-              {showPicker && (
-                <div className={styles.pickerWrapper} ref={pickerRef}>
-                  <Picker data={data} onEmojiSelect={handleEmojiSelect} />
+                <div className={styles.floatingInput}>
+                  <input
+                    type="text"
+                    id="title"
+                    value={title}
+                    onChange={(e) => setTitle(e.target.value)}
+                    required
+                    placeholder=" "
+                  />
+                  <label htmlFor="title">Habit Title</label>
                 </div>
-              )}
-            </div>
-          </label>
 
-          <div className={styles.dialogAction}>
-            <button type="button" onClick={onClose}>
-              Cancel
-            </button>
+                <div className={styles.floatingInput}>
+                  <input
+                    id="target"
+                    type="number"
+                    value={target}
+                    onChange={(e) => setTarget(e.target.value)}
+                    min={1}
+                    required
+                    placeholder=" "
+                    className={styles.inputs}
+                  />
+                  <label htmlFor="target">Habit Target:</label>
+                </div>
 
-            <button type="submit">Save</button>
-          </div>
-        </form>
+                <label htmlFor="">
+                  <div className={styles.pickerContainer}>
+                    <button
+                      className={styles.btn}
+                      type="button"
+                      onClick={() => setShowPicker(!showPicker)}
+                      title={icon ? `Selected: ${icon}` : "Show Emoji"}
+                    >
+                      {/* {icon ? `Selected: ${icon}` : "Show Emoji"} */}
+                      {icon || "😀 Choose Emoji"}
+                    </button>
+                    {showPicker && (
+                      <div className={styles.pickerWrapper} ref={pickerRef}>
+                        <Picker data={data} onEmojiSelect={handleEmojiSelect} />
+                      </div>
+                    )}
+                  </div>
+                </label>
+                {error && <div className={styles.error}>{error}</div>}
+                <div className={styles.dialogAction}>
+                  <button type="button" onClick={onClose} title="Cancel Edit">
+                    Cancel
+                  </button>
+
+                  <button type="submit" title="Save Edit">
+                    Save
+                  </button>
+                </div>
+              </form>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </dialog>
     </>
   );
