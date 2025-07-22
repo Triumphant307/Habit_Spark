@@ -4,19 +4,24 @@ import styles from "../../Styles/Tracker/EditDialog.module.css";
 import data from "@emoji-mart/data";
 import Picker from "@emoji-mart/react";
 
-type Habit = {
+interface Habit {
   title: string;
   target: number;
   icon: string;
-};
+}
 
-type EditDialogProps = {
+interface EditDialogProps {
   isOpen: boolean;
   habit: Habit;
   onClose: () => void;
   onSave: (updateHabit: Habit) => void;
-};
-const EditDialog = ({ isOpen, habit, onClose, onSave }: EditDialogProps) => {
+}
+const EditDialog: React.FC<EditDialogProps> = ({
+  isOpen,
+  habit,
+  onClose,
+  onSave,
+}) => {
   const dialogRef = useRef<HTMLDialogElement>(null);
   const [title, setTitle] = useState("");
   const [target, setTarget] = useState(1);
@@ -112,7 +117,7 @@ const EditDialog = ({ isOpen, habit, onClose, onSave }: EditDialogProps) => {
 
                 <div className={styles.floatingInput}>
                   <input
-                    type="text"
+                    interface="text"
                     id="title"
                     value={title}
                     onChange={(e) => setTitle(e.target.value)}
@@ -125,7 +130,7 @@ const EditDialog = ({ isOpen, habit, onClose, onSave }: EditDialogProps) => {
                 <div className={styles.floatingInput}>
                   <input
                     id="target"
-                    type="number"
+                    interface="number"
                     value={target}
                     onChange={handleChange}
                     min={1}
@@ -140,7 +145,7 @@ const EditDialog = ({ isOpen, habit, onClose, onSave }: EditDialogProps) => {
                   <div className={styles.pickerContainer}>
                     <button
                       className={styles.btn}
-                      type="button"
+                      interface="button"
                       onClick={() => setShowPicker(!showPicker)}
                       title={icon ? `Selected: ${icon}` : "Show Emoji"}
                     >
@@ -156,11 +161,15 @@ const EditDialog = ({ isOpen, habit, onClose, onSave }: EditDialogProps) => {
                 </label>
                 {error && <div className={styles.error}>{error}</div>}
                 <div className={styles.dialogAction}>
-                  <button type="button" onClick={onClose} title="Cancel Edit">
+                  <button
+                    interface="button"
+                    onClick={onClose}
+                    title="Cancel Edit"
+                  >
                     Cancel
                   </button>
 
-                  <button type="submit" title="Save Edit">
+                  <button interface="submit" title="Save Edit">
                     Save
                   </button>
                 </div>
