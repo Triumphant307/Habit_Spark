@@ -117,7 +117,7 @@ const EditDialog: React.FC<EditDialogProps> = ({
 
                 <div className={styles.floatingInput}>
                   <input
-                    interface="text"
+                    type="text"
                     id="title"
                     value={title}
                     onChange={(e) => setTitle(e.target.value)}
@@ -130,7 +130,7 @@ const EditDialog: React.FC<EditDialogProps> = ({
                 <div className={styles.floatingInput}>
                   <input
                     id="target"
-                    interface="number"
+                    type="number"
                     value={target}
                     onChange={handleChange}
                     min={1}
@@ -145,7 +145,7 @@ const EditDialog: React.FC<EditDialogProps> = ({
                   <div className={styles.pickerContainer}>
                     <button
                       className={styles.btn}
-                      interface="button"
+                      type="button"
                       onClick={() => setShowPicker(!showPicker)}
                       title={icon ? `Selected: ${icon}` : "Show Emoji"}
                     >
@@ -162,14 +162,14 @@ const EditDialog: React.FC<EditDialogProps> = ({
                 {error && <div className={styles.error}>{error}</div>}
                 <div className={styles.dialogAction}>
                   <button
-                    interface="button"
+                    type="button"
                     onClick={onClose}
                     title="Cancel Edit"
                   >
                     Cancel
                   </button>
 
-                  <button interface="submit" title="Save Edit">
+                  <button type="submit" title="Save Edit">
                     Save
                   </button>
                 </div>
