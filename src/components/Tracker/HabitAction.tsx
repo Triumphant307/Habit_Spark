@@ -1,19 +1,19 @@
 import { FaCheck, FaUndoAlt, FaTrash, FaEdit } from "react-icons/fa";
 
-type Habit = {
-  streak: number
-  target: number
+interface Habit {
+  streak: number;
+  target: number;
 }
 
-type HabitActionProps = {
+interface HabitActionProps {
   habit: Habit;
   handleDone: () => void;
   handleReset: () => void;
   handleDeleteClick: () => void;
   handleEditClick: () => void;
-  style: { [key: string]: string };
-};
-const HabitAction = ({
+  style: Record<string, string>;
+}
+const HabitAction: React.FC<HabitActionProps> = ({
   habit,
   handleDone,
   handleReset,
@@ -25,15 +25,16 @@ const HabitAction = ({
     <>
       <div className={style.actions}>
         {habit.streak < habit.target && (
-          <button onClick={handleDone} title="Done">
+          <button type="button" onClick={handleDone} title="Done">
             <FaCheck /> Done
           </button>
         )}
-        <button onClick={handleReset} title="Reset Streak">
+        <button type="button" onClick={handleReset} title="Reset Streak">
           <FaUndoAlt /> Reset
         </button>
 
         <button
+          type="button"
           className={style.editBtn}
           onClick={handleEditClick}
           title="Edit Habit"
@@ -42,7 +43,11 @@ const HabitAction = ({
         </button>
       </div>
       <div className={style.deleteActions}>
-        <button className={style.deleteBtn} onClick={handleDeleteClick}>
+        <button
+          type="button"
+          className={style.deleteBtn}
+          onClick={handleDeleteClick}
+        >
           <FaTrash /> Delete
         </button>
       </div>
