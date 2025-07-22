@@ -1,6 +1,22 @@
 import ProgressTrack from "../ProgressTracker";
 
-const HabitStat = ({ habit, progress, style }) => {
+interface styleProps {
+  stats?: string;
+  style: Record<string, string>;
+}
+
+interface Habit {
+  target: number;
+  streak: number;
+}
+
+interface HabitStatProps {
+  habit: Habit;
+  progress: number;
+  style: styleProps;
+}
+
+const HabitStat: React.FC<HabitStatProps> = ({ habit, progress, style }) => {
   return (
     <div className={style.stats}>
       <p>

@@ -1,4 +1,14 @@
-const ProgressTrack = ({ radius, stroke, progress }) => {
+type ProgressTrackProps = {
+  radius: number;
+  stroke: number;
+  progress: number;
+};
+
+const ProgressTrack: React.FC<ProgressTrackProps> = ({
+  radius,
+  stroke,
+  progress,
+}) => {
   const normalizedRadius = radius - stroke * 2;
   const circumference = normalizedRadius * 2 * Math.PI;
   const strokeDashoffset = circumference - (progress / 100) * circumference;
@@ -21,7 +31,7 @@ const ProgressTrack = ({ radius, stroke, progress }) => {
         stroke="#10B981"
         fill="transparent"
         strokeWidth={stroke}
-        strokeDasharray={circumference + " " + circumference}
+        strokeDasharray={`${circumference} ${circumference}`}
         style={{ strokeDashoffset }}
         strokeLinecap="round"
         r={normalizedRadius}
