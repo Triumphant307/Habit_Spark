@@ -5,7 +5,7 @@ import { FaSearch, FaTimes } from "react-icons/fa";
 interface SearchProps {
   searchQuery: string;
   setSearchQuery: (query: string) => void;
-  resultRef: React.RefObject<HTMLDivElement>;
+  resultRef: React.RefObject<HTMLDivElement | null>;
 }
 const Search: React.FC<SearchProps> = ({
   searchQuery,
@@ -17,8 +17,8 @@ const Search: React.FC<SearchProps> = ({
 
   const handleKeyDown = (e: React.KeyboardEvent) => {
     if (e.key === "Enter") {
-      inputRef.current?.blur();
-      resultRef.current?.scrollIntoView({ behavior: "smooth" });
+      inputRef?.current?.blur();
+      resultRef?.current?.scrollIntoView({ behavior: "smooth" });
     }
   };
 
