@@ -1,6 +1,5 @@
 import React, { createContext, ReactNode, useContext } from "react";
 import useLocalStorage from "../Hooks/useLocalStorage";
-import { number } from "framer-motion";
 
 export interface Habit {
   id: number;
