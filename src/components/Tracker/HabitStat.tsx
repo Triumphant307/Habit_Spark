@@ -13,7 +13,7 @@ interface Habit {
 interface HabitStatProps {
   habit: Habit;
   progress: number;
-  style: styleProps;
+  style: Record<string, string>;
 }
 
 const HabitStat: React.FC<HabitStatProps> = ({ habit, progress, style }) => {

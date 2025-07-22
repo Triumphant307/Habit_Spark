@@ -21,9 +21,7 @@ const HabitDetails = () => {
   const habit = habits.find((habit) => habit.id === Number(id));
 
   useEffect(() => {
-    if (!habit) return;
-
-    if (habit.streak >= habit.target) {
+    if (habit && habit.streak === habit.target) {
       confetti({
         particleCount: 100,
         spread: 70,
@@ -31,7 +29,7 @@ const HabitDetails = () => {
       });
       toast.success("🎉 Congratulations! You've reached your target!");
     }
-  }, [habit]);
+  }, [habit?.streak]);
 
   if (!habit) {
     return <p className={style.noFound}>Habit not found</p>;
@@ -90,7 +88,6 @@ const HabitDetails = () => {
             habit={habit}
             handleDone={handleDone}
             handleReset={handleReset}
-            handleDelete={handleDelete}
             handleDeleteClick={handleDeleteClick}
             handleEditClick={() => setIsEditOpen(true)}
             style={style}
