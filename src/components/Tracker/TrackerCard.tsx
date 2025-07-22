@@ -2,7 +2,20 @@ import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import ProgressTrack from "../ProgressTracker";
 import style from "../../Styles/Tracker/TrackerCard.module.css";
-const TrackerCard = ({ habits }) => {
+import React from "react";
+
+interface Habits {
+  id: number;
+  title: string;
+  icon: string;
+  streak: number;
+  target: number;
+}
+
+interface TrackerCardProps {
+  habits: Habits[];
+}
+const TrackerCard: React.FC<TrackerCardProps> = ({ habits }) => {
   return (
     <>
       <section>
