@@ -1,13 +1,13 @@
 import { useRef, useEffect } from "react";
 import styles from "../../Styles/Tracker/DeleteDialog.module.css";
 
-type DeleteDialogProp = {
+interface DeleteDialogProp  {
   isOpen: boolean;
   onClose: () => void;
   onConfirm: () => void;
 };
 
-const DeleteDialog = ({ isOpen, onClose, onConfirm }: DeleteDialogProp) => {
+const DeleteDialog: React.FC<DeleteDialogProp> = ({ isOpen, onClose, onConfirm }) => {
   const dialogRef = useRef<HTMLDialogElement>(null);
 
   useEffect(() => {
